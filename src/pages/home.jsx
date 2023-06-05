@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "../components/form";
 import Preview from "../components/preview";
+import ListButton from "../components/listButton";
 
 const Home = () => {
   return (
@@ -9,6 +10,9 @@ const Home = () => {
         <Form />
       </div>
       <div className="p-4">
+      <div className="py-4">
+        <ListButton/>
+      </div>
         <Preview />
       </div>
     </div>

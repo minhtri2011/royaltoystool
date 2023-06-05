@@ -1,16 +1,12 @@
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import logo from "../assets/logo.jpg";
 import { getPostData } from "../redux/slices/postSlice";
-import useCheckVersion from "../hooks/useCheckVersion";
 
 const Preview = () => {
   const postData = useSelector(getPostData);
-  const checkVersion = useCheckVersion();
-  useEffect(() => {
-    console.log(checkVersion);
-  }, [checkVersion]);
+
   const {
     productName,
     manufacturer,
@@ -26,9 +22,7 @@ const Preview = () => {
     accessories,
     releaseDate,
     note,
-    versionNote,
     versions,
-    versionLimit,
   } = postData;
 
   const renderInfo = (data, title, final) => {
@@ -68,7 +62,7 @@ const Preview = () => {
             Number(version.versionLimit).toLocaleString() + " bản"
           )}
           {(version.price || version.deposit) && (
-            <p className="inline-flex">
+            <Text className="inline-flex">
               {renderInfo(
                 version.price,
                 "Giá bán",
@@ -80,7 +74,7 @@ const Preview = () => {
                 "Cọc",
                 Number(version.deposit).toLocaleString() + " VNĐ"
               )}
-            </p>
+            </Text>
           )}
 
           {renderInfo(
@@ -88,6 +82,7 @@ const Preview = () => {
             "Bank full",
             Number(version.bankFull).toLocaleString() + " VNĐ"
           )}
+          {renderInfo(version.versionNote, "Ghi chú")}
         </div>
       );
     });
@@ -121,7 +116,7 @@ const Preview = () => {
           </Text>
         </Text>
         {(price || deposit) && (
-          <p className="inline-flex">
+          <Text as="span" className="inline-flex">
             {renderInfo(
               price,
               "Giá bán",
@@ -133,7 +128,7 @@ const Preview = () => {
               "Cọc",
               Number(deposit).toLocaleString() + " VNĐ"
             )}
-          </p>
+          </Text>
         )}
 
         {renderInfo(
@@ -146,7 +141,6 @@ const Preview = () => {
         {renderInfo(accessories, "Phụ kiện")}
         {renderInfo(releaseDate, "Phát hành")}
         {renderInfo(note, "Ghi chú")}
-        {renderInfo(versionNote, "Ghi chú")}
 
         {/* //todo: render all version */}
         {renderAllVersionsPost()}

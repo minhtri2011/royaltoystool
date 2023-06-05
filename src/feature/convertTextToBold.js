@@ -9,7 +9,6 @@ const convertTextToBold = (word) => {
 
   const bolderize = (char) => {
     const n = char.charCodeAt(0);
-    console.log(char);
 
     // Ánh xạ ký tự tiếng Việt sang ký tự đậm tương ứng
     const vietnameseChars = {
@@ -20,11 +19,13 @@ const convertTextToBold = (word) => {
       á: "𝗮́",
       â: "𝗮̂",
       ầ: "𝗮̂̀",
+      ấ: "𝗮̂́",
       ẩ: "𝗮̂̉",
       ẫ: "𝗮̂̃",
       ậ: "𝗮̣̂",
       ă: "𝗮̆",
       ằ: "𝗮̆̀",
+      ắ: "𝗮̆́",
       ẳ: "𝗮̆̉",
       ẵ: "𝗮̆̃",
       ặ: "𝗮̣̆",
@@ -52,11 +53,13 @@ const convertTextToBold = (word) => {
       ó: "𝗼́",
       ô: "𝗼̂",
       ồ: "𝗼̂̀",
+      ố: "𝗼̂́",
       ổ: "𝗼̂̉",
       ỗ: "𝗼̂̃",
       ộ: "𝗼̣̂",
       ơ: "𝗼̛",
       ờ: "𝗼̛̀",
+      ớ: "𝗼̛́",
       ở: "𝗼̛̉",
       ỡ: "𝗼̛̃",
       ợ: "𝗼̛̣",
@@ -67,6 +70,7 @@ const convertTextToBold = (word) => {
       ú: "𝘂́",
       ư: "𝘂̛",
       ừ: "𝘂̛̀",
+      ứ: "𝘂̛́",
       ử: "𝘂̛̉",
       ữ: "𝘂̛̃",
       ự: "𝘂̛̣",

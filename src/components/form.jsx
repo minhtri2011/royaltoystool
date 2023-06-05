@@ -31,9 +31,6 @@ const Form = () => {
     accessories,
     releaseDate,
     note,
-    versionName,
-    versionNote,
-    versionLimit,
     versions,
   } = postData;
 
@@ -69,25 +66,9 @@ const Form = () => {
       value: accessories,
     },
     {
-      label: "Ghi chú chung",
-      name: "note",
-      value: note,
-    },
-
-    {
-      label: "Tên phiên bản",
-      name: "versionName",
-      value: versionName,
-    },
-    {
       label: "Tỉ lệ",
       name: "ratio",
       value: ratio,
-    },
-    {
-      label: "Giới hạn riêng",
-      name: "versionLimit",
-      value: versionLimit,
     },
     {
       label: "Cao",
@@ -120,9 +101,9 @@ const Form = () => {
       value: bankFull,
     },
     {
-      label: "Ghi chú riêng",
-      name: "versionNote",
-      value: versionNote,
+      label: "Ghi chú",
+      name: "note",
+      value: note,
     },
   ];
 
@@ -147,7 +128,7 @@ const Form = () => {
       "depth",
       "bankFull",
       "deposit",
-      "versionLimit"
+      "versionLimit",
     ];
     return arr.includes(value) ? "number" : "text";
   };
@@ -223,25 +204,21 @@ const Form = () => {
     });
   };
 
-
   return (
     <>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, 1fr)",
+          gridTemplateColumns: "repeat(4, 1fr)",
           gridAutoRows: "minmax(0, auto)",
           gap: "1rem",
           gridTemplateAreas: `
-          "productName productName productName"
-          "manufacturer releaseDate limit"
-          "material accessories accessories"
-          "note note note"
-          "versionName versionName versionName"
-          "ratio versionLimit versionLimit"
-          "height width depth"
-          "price deposit bankFull"
-          "versionNote versionNote versionNote"
+          "productName productName productName productName"
+          "manufacturer manufacturer releaseDate releaseDate"
+          "limit material accessories accessories"
+          "ratio height width depth"
+          "price price deposit bankFull"
+          "note note note note"
           `,
         }}
       >
