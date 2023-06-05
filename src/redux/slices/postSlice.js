@@ -1,28 +1,87 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuid } from "uuid";
 
 const initialState = {
-    productName: { label: "", name: "" },
-    manufacturer: { label: "", name: "" },
-    releaseDate: { label: "", name: "" },
-    limit: { label: "", name: "" },
-    material: { label: "", name: "" },
-    accessories: { label: "", name: "" },
-    note: { label: "", name: "" },
-    ratio: { label: "", name: "" },
-    height: { label: "", name: "" },
-    width: { label: "", name: "" },
-    depth: { label: "", name: "" },
-    price: { label: "", name: "" },
-    deposit: { label: "", name: "" },
-    bankFull: { label: "", name: "" },
-}
+  productName: "",
+  manufacturer: "",
+  releaseDate: "",
+  limit: "",
+  material: "",
+  accessories: "",
+  note: "",
+  versionName: "",
+  versionNote: "",
+  versionLimit: "",
+  ratio: "",
+  height: "",
+  width: "",
+  depth: "",
+  price: "",
+  deposit: "",
+  bankFull: "",
+  versions: [],
+};
 
 const postSlice = createSlice({
-  name: 'post',
+  name: "post",
   initialState,
-  reducers: {}
+  reducers: {
+    resetForm: (state) => {
+      state.productName = "";
+      state.manufacturer = "";
+      state.releaseDate = "";
+      state.limit = "";
+      state.material = "";
+      state.accessories = "";
+      state.note = "";
+      state.versionName = "";
+      state.versionNote = "";
+      state.versionLimit = "";
+      state.ratio = "";
+      state.height = "";
+      state.width = "";
+      state.depth = "";
+      state.price = "";
+      state.deposit = "";
+      state.bankFull = "";
+      state.versions = [];
+    },
+    setFormValue: (state, action) => {
+      const { name, value } = action.payload;
+      state[name] = value;
+    },
+    addNewVersion: (state) => {
+      state.versions.push({
+        id: uuid(),
+        versionName: "",
+        versionNote: "",
+        versionLimit: "",
+        ratio: "",
+        height: "",
+        width: "",
+        depth: "",
+        price: "",
+        deposit: "",
+        bankFull: "",
+      });
+    },
+    setFormVersion: (state, action) => {
+      const { name, value, id } = action.payload;
+      const versionIndex = state.versions.findIndex((version) => version.id === id);
+      if (versionIndex !== -1) {
+        state.versions[versionIndex][name] = value;
+      }
+    },
+    deleteVersion: (state, action) => {
+      const id  = action.payload;
+      state.versions = state.versions.filter((version) => version.id!== id);
+    }
+    
+  },
 });
 
-export const {} = postSlice.actions
+export const { setFormValue, addNewVersion, setFormVersion, resetForm, deleteVersion} =
+  postSlice.actions;
+export const getPostData = (state) => state.postSlice;
 
-export default postSlice.reducer
+export default postSlice.reducer;
