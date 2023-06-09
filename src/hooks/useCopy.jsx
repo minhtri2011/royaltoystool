@@ -31,21 +31,26 @@ const useCopy = () => {
     variables.forEach(function (variable) {
       // Kiểm tra biến có giá trị không rỗng
       if (variable.trim() !== "") {
-        // Xóa dấu "-"
-        var cleanedString = variable.replace(/-/g, "");
-
-        // Tạo tag từ các từ được phân tách bởi dấu khoảng trắng
-        var words = cleanedString.split(" ");
+        // Xóa tất cả các kí tự đặc biệt
+        var cleanedString = variable.replace(/[^\w\s]/g, "");
+  
+        // Tách từ trong chuỗi đã làm sạch
+        var words = cleanedString.split(" ").filter(variable => variable.trim() !== "");;
+        // Tạo tag cho từng từ
         var tags = words.map(function (word) {
-          return "#" + word;
+          // Loại bỏ khoảng trắng thừa trước và sau từ
+          var trimmedWord = word.trim();
+          return "#" + trimmedWord;
         });
-
+  
         // In các tag
         tagRender += " " + tags.join(" ");
       }
     });
     return tagRender;
   };
+  
+  
 
   const checkAndRender = (value, title, downLine) => {
     if (!value) return "";
