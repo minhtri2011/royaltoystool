@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
+import { Avatar, Box, Card, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import logo from "../assets/logo.jpg";
@@ -89,7 +89,7 @@ const Preview = () => {
   };
 
   return (
-    <div className="rounded-sm border-solid border-black border-[1px]">
+    <Card className='p-2'>
       <Flex>
         <Avatar src={logo} />
         <Box ml="3">
@@ -145,7 +145,7 @@ const Preview = () => {
         {/* //todo: render all version */}
         {renderAllVersionsPost()}
       </Box>
-    </div>
+    </Card>
   );
 };
 

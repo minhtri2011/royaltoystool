@@ -1,6 +1,6 @@
 import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addNewVersion,
@@ -11,11 +11,24 @@ import {
   setFormVersion,
 } from "../redux/slices/postSlice";
 import InputWithFloatingLabel from "./inputWithFloatingLabel";
-import convertTextToBold from "../feature/convertTextToBold";
 
 const Form = () => {
   const postData = useSelector(getPostData);
   const dispatch = useDispatch();
+  const handleResetForm = () => dispatch(resetForm());
+  const inputProductNameRef = useRef(null);
+  const iref = useRef(null);
+  const handleAddNewVersion = () => {
+    dispatch(addNewVersion());
+    setTimeout(() => {
+      iref.current && iref.current.focus();
+      iref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+    }, 0);
+  };
+
   const {
     productName,
     manufacturer,
@@ -33,12 +46,12 @@ const Form = () => {
     note,
     versions,
   } = postData;
-
   const inputArr = [
     {
       label: "Tên sản phẩm",
       name: "productName",
       value: productName,
+      ref: inputProductNameRef,
     },
     {
       label: "Hãng sản xuất",
@@ -106,9 +119,33 @@ const Form = () => {
       value: note,
     },
   ];
+  useEffect(() => {
+    inputProductNameRef.current && inputProductNameRef.current.focus();
+  }, []);
 
-  const handleAddNewVersion = () => dispatch(addNewVersion());
-  const handleResetForm = () => dispatch(resetForm());
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      // Kiểm tra xem phím tắt đã được nhấn hay chưa (ví dụ: Alt + A)
+      if (event.altKey && event.keyCode === 65) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
+        handleAddNewVersion();
+      }
+      if (event.altKey && event.keyCode === 68) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
+        handleResetForm();
+        inputProductNameRef.current.focus();
+      }
+    };
+
+    // Lắng nghe sự kiện keydown trên phần tử cụ thể (ví dụ: document.body)
+    document.body.addEventListener("keydown", handleKeyDown);
+
+    // Xóa lắng nghe sự kiện khi component bị hủy
+    return () => {
+      document.body.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []); // Truyền mảng rỗng [] để đảm bảo useEffect chỉ chạy một lần sau khi component được tạo
+
   const handleInputChange = (name, value) => {
     dispatch(setFormValue({ name, value }));
   };
@@ -179,16 +216,31 @@ const Form = () => {
             `,
             }}
           >
-            {inputItems.map((inputItem, key) => (
-              <div key={key} style={{ gridArea: inputItem.name }}>
-                <InputWithFloatingLabel
-                  {...inputItem}
-                  id={version.id}
-                  type={checkType(inputItem.name)}
-                  onChange={handleInputChangeVersion}
-                />
-              </div>
-            ))}
+            {inputItems.map((inputItem, key) => {
+              if (inputItem.name === "versionName") {
+                return (
+                  <div key={key} style={{ gridArea: inputItem.name }}>
+                    <InputWithFloatingLabel
+                      {...inputItem}
+                      ref={iref}
+                      id={version.id}
+                      type={checkType(inputItem.name)}
+                      onChange={handleInputChangeVersion}
+                    />
+                  </div>
+                );
+              }
+              return (
+                <div key={key} style={{ gridArea: inputItem.name }}>
+                  <InputWithFloatingLabel
+                    {...inputItem}
+                    id={version.id}
+                    type={checkType(inputItem.name)}
+                    onChange={handleInputChangeVersion}
+                  />
+                </div>
+              );
+            })}
           </div>
           <Button
             leftIcon={<DeleteIcon />}
@@ -226,6 +278,7 @@ const Form = () => {
           <div key={key} style={{ gridArea: inputItem.name }}>
             <InputWithFloatingLabel
               {...inputItem}
+              ref={inputItem.ref ? inputItem.ref : null}
               type={checkType(inputItem.name)}
               onChange={handleInputChange}
             />
@@ -236,7 +289,7 @@ const Form = () => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(2, 1fr)",
           gridAutoRows: "minmax(0, auto)",
           gap: "1rem",
           marginTop: "1rem",
@@ -248,7 +301,7 @@ const Form = () => {
           variant="solid"
           onClick={handleResetForm}
         >
-          Xóa toàn bộ
+          Xóa toàn bộ (Alt + D)
         </Button>
         <Button
           leftIcon={<AddIcon />}
@@ -256,10 +309,7 @@ const Form = () => {
           variant="solid"
           onClick={handleAddNewVersion}
         >
-          Phiên bản khác
-        </Button>
-        <Button leftIcon={<AddIcon />} colorScheme="blue" variant="outline">
-          Giá mua combo
+          Phiên bản khác (Alt + A)
         </Button>
       </div>
     </>
