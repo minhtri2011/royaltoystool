@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import InputWithFloatingLabel from "./inputWithFloatingLabel";
 import { toast } from "react-hot-toast";
+import { ChevronUpIcon } from "@chakra-ui/icons";
 
 const Price = () => {
   const [price, setPrice] = useState(0);
@@ -17,6 +18,7 @@ const Price = () => {
   const [currencyExchange, setCurrencyExchange] = useState(3.5);
   const [profit, setProfit] = useState(1.1);
   const priceRef = useRef(null);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -26,6 +28,9 @@ const Price = () => {
         setPrice(0);
         setShip(0);
         priceRef.current && priceRef.current.focus();
+      }
+      if (event.altKey && event.keyCode === 83) {
+        setActive((v) => !v);
       }
     };
 
@@ -63,9 +68,20 @@ const Price = () => {
 
   return (
     <Box
-      className="!fixed bottom-0 right-0 left-0 !bg-orange-400 z-10 p-5 gap-3"
-      style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)" }}
+      className={`!fixed right-0 transition-all ease-in-out duration-300 left-0 !bg-orange-400 z-10 p-5 gap-3 grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-6  ${
+        active ? "bottom-0" : "-bottom-full"
+      }`}
     >
+      <Tooltip label="Toggle tool bar (Alt + S)">
+        <div
+          onClick={() => setActive((v) => !v)}
+          className={`absolute scale-75 left-1/2 -translate-x-1/2 bg-orange-400 rounded-full w-10 h-10 flex justify-center cursor-pointer [&:hover]:scale-125 transition-all ${
+            !active ? " !fixed left-0 -bottom-4" : "-top-4"
+          }`}
+        >
+          <ChevronUpIcon className="text-3xl" />
+        </div>
+      </Tooltip>
       <InputWithFloatingLabel
         type="number"
         onChange={handleChangePrice}
@@ -99,15 +115,31 @@ const Price = () => {
 
       {/* <Box className="flex items-center gap-2"> */}
       <Tooltip label="Click to copy">
-        <Text className="cursor-pointer self-center" onClick={handleCopyPrice}>
-          Quy đổi: {price && (price * currencyExchange * 1000).toLocaleString()}
+        <Text
+          fontWeight={"bold"}
+          className="cursor-pointer self-center"
+          onClick={handleCopyPrice}
+          as={"span"}
+        >
+          Quy đổi:{" "}
+          <Text as={"span"} fontWeight={"normal"}>
+            {price && (price * currencyExchange * 1000).toLocaleString()} VND
+          </Text>
         </Text>
       </Tooltip>
 
       <Tooltip label="Click to copy">
-        <Text className="cursor-pointer self-center" onClick={handleCopyMoney}>
+        <Text
+          fontWeight={"bold"}
+          className="cursor-pointer self-center"
+          onClick={handleCopyMoney}
+          as={"span"}
+        >
           Thành tiền:{" "}
-          {(price * currencyExchange * 1000 * profit + ship).toLocaleString()}
+          <Text as={"span"} fontWeight={"normal"}>
+            {(price * currencyExchange * 1000 * profit + ship).toLocaleString()}{" "}
+            VND
+          </Text>
         </Text>
       </Tooltip>
       {/* </Box> */}

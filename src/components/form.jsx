@@ -23,8 +23,8 @@ const Form = () => {
     setTimeout(() => {
       iref.current && iref.current.focus();
       iref.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
+        behavior: "smooth",
+        block: "nearest",
       });
     }, 0);
   };
@@ -258,22 +258,7 @@ const Form = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gridAutoRows: "minmax(0, auto)",
-          gap: "1rem",
-          gridTemplateAreas: `
-          "productName productName productName productName"
-          "manufacturer manufacturer releaseDate releaseDate"
-          "limit material accessories accessories"
-          "ratio height width depth"
-          "price price deposit bankFull"
-          "note note note note"
-          `,
-        }}
-      >
+      <div className="grid gap-4 grid-cols-4 gridFormTemplateMobile sm:gridFormTemplate">
         {inputArr.map((inputItem, key) => (
           <div key={key} style={{ gridArea: inputItem.name }}>
             <InputWithFloatingLabel
@@ -286,15 +271,7 @@ const Form = () => {
         ))}
       </div>
       <div>{renderAllVersions()}</div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gridAutoRows: "minmax(0, auto)",
-          gap: "1rem",
-          marginTop: "1rem",
-        }}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         <Button
           leftIcon={<DeleteIcon />}
           colorScheme="pink"

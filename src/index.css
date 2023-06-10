@@ -9,3 +9,27 @@
     font-family: inherit;
   }
 }
+@layer components {
+  .gridFormTemplate {
+    grid-template-areas:
+      "productName productName productName productName"
+      "manufacturer manufacturer releaseDate releaseDate"
+      "limit material accessories accessories"
+      "ratio height width depth"
+      "price price deposit bankFull"
+      "note note note note";
+  }
+  .gridFormTemplateMobile {
+    grid-template-areas:
+      "productName productName productName productName"
+      "manufacturer manufacturer manufacturer manufacturer"
+      "releaseDate releaseDate releaseDate releaseDate"
+      "limit limit material material "
+      "accessories accessories accessories accessories"
+      "ratio ratio height height"
+      "width width depth depth"
+      "price price deposit deposit"
+      "bankFull bankFull bankFull bankFull"
+      "note note note note";
+  }
+}

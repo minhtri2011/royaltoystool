@@ -10,7 +10,7 @@ const tags = `
 -Relax: https://www.tiktok.com/@tringuyendev
 🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ  : 1162/2/13 Đường Trường Sa, phường 13, Phú Nhuận, Thành phố Hồ Chí Minh
 
-#RoyalToys #MoHinh #Decord #DoChoi #royal #toys `;
+#RoyalToys #MoHinh #Decor #DoChoi #royal #toys `;
 
 const resinTag = `#resin #figure #resinArt #anime`;
 const figureTag = `#resin #figure #anime`;
