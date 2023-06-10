@@ -30,6 +30,12 @@ const Price = () => {
         setShip(0);
         priceRef.current && priceRef.current.focus();
       }
+      if (event.altKey && event.keyCode === 87) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
+        if(!active) setActive(true);
+        setPrice(0);
+        priceRef.current && priceRef.current.focus();
+      }
       if (event.altKey && event.keyCode === 83) {
         setActive((v) => !v);
       }
@@ -86,7 +92,7 @@ const Price = () => {
       <InputWithFloatingLabel
         type="number"
         onChange={handleChangePrice}
-        label="Giá (Alt + Q)"
+        label="Giá (Alt + Q - Alt + W)"
         ref={priceRef}
         value={price !== 0 ? price : ""}
       />
