@@ -1,6 +1,8 @@
 import { Button, Text } from "@chakra-ui/react";
 import React from "react";
 import useCopyTiktok from "../hooks/useCopyTiktok";
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.jpg";
 
 const TagsPage = () => {
   const {
@@ -59,6 +61,9 @@ const TagsPage = () => {
         <Button onClick={copyResinKNY}>KNY</Button>
         <Button onClick={copyResinChainsawMan}>Chainsaw man</Button>
       </div>
+      <Link className="fixed bottom-1 right-1 z-10 md:hidden" to="/">
+        <img src={logo} alt="" className="w-10 rounded-full" />
+      </Link>
     </div>
   );
 };

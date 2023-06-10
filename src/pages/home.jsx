@@ -3,6 +3,8 @@ import Form from "../components/form";
 import Preview from "../components/preview";
 import ListButton from "../components/listButton";
 import Price from "../components/price";
+import logo from "../assets/logo.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -18,6 +20,9 @@ const Home = () => {
           <Preview />
         </div>
         <Price />
+        <Link className="fixed bottom-1 right-1 z-10 md:hidden" to="/tags">
+          <img src={logo} alt="" className="w-10 rounded-full"/>
+        </Link>
       </div>
     </>
   );

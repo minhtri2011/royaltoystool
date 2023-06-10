@@ -15,7 +15,10 @@ import InputWithFloatingLabel from "./inputWithFloatingLabel";
 const Form = () => {
   const postData = useSelector(getPostData);
   const dispatch = useDispatch();
-  const handleResetForm = () => dispatch(resetForm());
+  const handleResetForm = () => {
+    dispatch(resetForm());
+    inputProductNameRef.current.focus();
+  };
   const inputProductNameRef = useRef(null);
   const iref = useRef(null);
   const handleAddNewVersion = () => {
@@ -133,7 +136,6 @@ const Form = () => {
       if (event.altKey && event.keyCode === 68) {
         event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
         handleResetForm();
-        inputProductNameRef.current.focus();
       }
     };
 
