@@ -25,6 +25,7 @@ const Price = () => {
       // Kiểm tra xem phím tắt đã được nhấn hay chưa (ví dụ: Alt + A)
       if (event.altKey && event.keyCode === 81) {
         event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
+        if(!active) setActive(true);
         setPrice(0);
         setShip(0);
         priceRef.current && priceRef.current.focus();
