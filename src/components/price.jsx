@@ -115,10 +115,9 @@ const Price = () => {
         onChange={(e) => setShip(Number(e.target.value))}
       >
         <option value={0}> Không tính phí ship</option>
-        <option value={150000}> Dưới 20 cm</option>
-        <option value={400000}> 21-40 cm</option>
-        <option value={500000}> 41-60 cm</option>
-        <option value={1000000}> Trên 60 cm</option>
+        <option value={200000}> Dưới 20 cm</option>
+        <option value={600000}> 20-40 cm</option>
+        <option value={1000000}> Trên 40 cm</option>
       </Select>
 
       {/* <Box className="flex items-center gap-2"> */}
