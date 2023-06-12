@@ -15,7 +15,7 @@ import { ChevronUpIcon } from "@chakra-ui/icons";
 const Price = () => {
   const [price, setPrice] = useState(0);
   const [ship, setShip] = useState(0);
-  const [currencyExchange, setCurrencyExchange] = useState(3.5);
+  const [currencyExchange, setCurrencyExchange] = useState(3.55);
   const [profit, setProfit] = useState(1.1);
   const priceRef = useRef(null);
   const [active, setActive] = useState(false);
