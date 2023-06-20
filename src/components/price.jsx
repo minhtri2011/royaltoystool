@@ -25,7 +25,7 @@ const Price = () => {
       // Kiểm tra xem phím tắt đã được nhấn hay chưa (ví dụ: Alt + A)
       if (event.altKey && event.keyCode === 81) {
         event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
-        if(!active) setActive(true);
+        if (!active) setActive(true);
         setPrice(0);
         setShip(0);
         priceRef.current && priceRef.current.focus();
@@ -33,7 +33,7 @@ const Price = () => {
       if (event.altKey && event.keyCode === 69) {
         // alt e
         event.preventDefault(); // Ngăn chặn hành vi mặc định (ví dụ: mở menu Alt)
-        if(!active) setActive(true);
+        if (!active) setActive(true);
         setPrice(0);
         priceRef.current && priceRef.current.focus();
       }
@@ -72,6 +72,16 @@ const Price = () => {
       (price * currencyExchange * 1000 * profit + ship).toFixed()
     );
     toast.success("Copy thành tiền");
+  };
+  const totalPrice = () => {
+    const money = price * currencyExchange * 1000;
+    if (money < 1000001) return (money + 200000 + ship).toLocaleString();
+    if (money > 1000000 && money < 2000001)
+      return (money + 300000 + ship).toLocaleString();
+    if (money > 2000000 && money < 3000001)
+      return (money + 300000 + ship).toLocaleString();
+
+    return (money * profit + ship).toLocaleString();
   };
 
   return (
@@ -115,9 +125,11 @@ const Price = () => {
         onChange={(e) => setShip(Number(e.target.value))}
       >
         <option value={0}> Không tính phí ship</option>
-        <option value={200000}> Dưới 20 cm</option>
-        <option value={600000}> 20-40 cm</option>
-        <option value={1000000}> Trên 40 cm</option>
+        <option value={200000}> 200.000</option>
+        <option value={300000}> 300.000</option>
+        <option value={500000}> 500.000</option>
+        <option value={600000}> 600.000</option>
+        <option value={1000000}> 1.000.000</option>
       </Select>
 
       {/* <Box className="flex items-center gap-2"> */}
@@ -135,20 +147,32 @@ const Price = () => {
         </Text>
       </Tooltip>
 
-      <Tooltip label="Click to copy">
+      <div className="flex flex-col">
         <Text
           fontWeight={"bold"}
-          className="cursor-pointer self-center"
+          className="cursor-pointer "
           onClick={handleCopyMoney}
           as={"span"}
         >
-          Thành tiền:{" "}
+          Kèm phí ship:{" "}
           <Text as={"span"} fontWeight={"normal"}>
-            {(price * currencyExchange * 1000 * profit + ship).toLocaleString()}{" "}
-            VND
+            {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
           </Text>
         </Text>
-      </Tooltip>
+        <Tooltip label="Click to copy">
+          <Text
+            fontWeight={"bold"}
+            className="cursor-pointer "
+            onClick={handleCopyMoney}
+            as={"span"}
+          >
+            Thành tiền:{" "}
+            <Text as={"span"} fontWeight={"normal"}>
+              {totalPrice()} VND
+            </Text>
+          </Text>
+        </Tooltip>
+      </div>
       {/* </Box> */}
     </Box>
   );
