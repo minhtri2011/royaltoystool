@@ -79,7 +79,7 @@ const Price = () => {
     if (money > 1000000 && money < 2000001)
       return (money + 300000 + ship).toLocaleString();
     if (money > 2000000 && money < 3000001)
-      return (money + 300000 + ship).toLocaleString();
+      return (money + 400000 + ship).toLocaleString();
 
     return (money * profit + ship).toLocaleString();
   };
