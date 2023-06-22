@@ -107,18 +107,6 @@ const Price = () => {
         ref={priceRef}
         value={price !== 0 ? price : ""}
       />
-      <InputWithFloatingLabel
-        type="number"
-        value={currencyExchange ? currencyExchange : 0}
-        onChange={handleChangeCurrency}
-        label="Quy đổi ngoại tệ"
-      />
-      <InputWithFloatingLabel
-        type="number"
-        value={profit ? profit : 0}
-        onChange={handleChangeProfit}
-        label="Tiền lời (mặc định 10%)"
-      />
       <Select
         className="cursor-pointer"
         value={ship}
@@ -131,6 +119,18 @@ const Price = () => {
         <option value={600000}> 600.000</option>
         <option value={1000000}> 1.000.000</option>
       </Select>
+      <InputWithFloatingLabel
+        type="number"
+        value={currencyExchange ? currencyExchange : 0}
+        onChange={handleChangeCurrency}
+        label="Quy đổi ngoại tệ"
+      />
+      <InputWithFloatingLabel
+        type="number"
+        value={profit ? profit : 0}
+        onChange={handleChangeProfit}
+        label="Tiền lời (mặc định 10%)"
+      />
 
       {/* <Box className="flex items-center gap-2"> */}
       <Tooltip label="Click to copy">
