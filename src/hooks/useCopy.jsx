@@ -117,6 +117,17 @@ const useCopy = () => {
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
   ];
+  const resinWebDetails = [
+    productName + "\n",
+    checkAndRender(manufacturer, "HSX"),
+    renderSize(ratio, height, width, depth),
+    renderPrice(price, deposit, bankFull),
+    checkAndRenderLimitNumber(limit, "Giới hạn"),
+    checkAndRender(material, "Chất liệu"),
+    checkAndRender(accessories, "Phụ kiện"),
+    checkAndRender(releaseDate, "Phát hành"),
+    checkAndRender(note, "Ghi chú"),
+  ];
   const resinDetailsV2 = [
     convertTextToBold(productName + "\n"),
     checkAndRender(manufacturer, "HSX"),
@@ -130,7 +141,7 @@ const useCopy = () => {
     renderPrice(price, deposit, bankFull),
   ];
   const webNoPrice= [
-    convertTextToBold(productName + "\n"),
+    productName + "\n",
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
     checkAndRenderLimitNumber(limit, "Giới hạn"),
@@ -232,7 +243,7 @@ const useCopy = () => {
   };
   const renderPostWebResin = () => {
     let renderedPost = "";
-    resinDetails.forEach((product) => {
+    resinWebDetails.forEach((product) => {
       renderedPost += product;
     });
     versionDetails().forEach((version) => {
