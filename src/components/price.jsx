@@ -147,18 +147,15 @@ const Price = () => {
         </Text>
       </Tooltip>
 
-        <Text
-          fontWeight={"bold"}
-          className="cursor-pointer "
-          onClick={handleCopyMoney}
-          as={"span"}
-        >
+      <div>
+        <Text fontWeight={"bold"} className="cursor-pointer " as={"span"}>
           Kèm phí ship:{" "}
           <Text as={"span"} fontWeight={"normal"}>
             {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
           </Text>
         </Text>
-      {/* <div className="flex flex-col"> */}
+      </div>
+      <div>
         <Tooltip label="Click to copy">
           <Text
             fontWeight={"bold"}
@@ -172,7 +169,7 @@ const Price = () => {
             </Text>
           </Text>
         </Tooltip>
-      {/* </div> */}
+      </div>
       {/* </Box> */}
     </Box>
   );
