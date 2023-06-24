@@ -125,12 +125,12 @@ const Price = () => {
         onChange={handleChangeCurrency}
         label="Quy đổi ngoại tệ"
       />
-      <InputWithFloatingLabel
+      {/* <InputWithFloatingLabel
         type="number"
         value={profit ? profit : 0}
         onChange={handleChangeProfit}
         label="Tiền lời (mặc định 10%)"
-      />
+      /> */}
 
       {/* <Box className="flex items-center gap-2"> */}
       <Tooltip label="Click to copy">
@@ -147,7 +147,6 @@ const Price = () => {
         </Text>
       </Tooltip>
 
-      <div className="flex flex-col">
         <Text
           fontWeight={"bold"}
           className="cursor-pointer "
@@ -159,6 +158,7 @@ const Price = () => {
             {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
           </Text>
         </Text>
+      {/* <div className="flex flex-col"> */}
         <Tooltip label="Click to copy">
           <Text
             fontWeight={"bold"}
@@ -172,7 +172,7 @@ const Price = () => {
             </Text>
           </Text>
         </Tooltip>
-      </div>
+      {/* </div> */}
       {/* </Box> */}
     </Box>
   );
