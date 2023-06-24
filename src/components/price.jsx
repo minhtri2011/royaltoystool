@@ -147,19 +147,16 @@ const Price = () => {
         </Text>
       </Tooltip>
 
-      <div>
-        <Text fontWeight={"bold"} className="cursor-pointer " as={"span"}>
+        <Text fontWeight={"bold"} className="cursor-pointer self-center" as={"span"}>
           Kèm phí ship:{" "}
           <Text as={"span"} fontWeight={"normal"}>
             {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
           </Text>
         </Text>
-      </div>
-      <div>
         <Tooltip label="Click to copy">
           <Text
             fontWeight={"bold"}
-            className="cursor-pointer "
+            className="cursor-pointer self-center"
             onClick={handleCopyMoney}
             as={"span"}
           >
@@ -169,7 +166,6 @@ const Price = () => {
             </Text>
           </Text>
         </Tooltip>
-      </div>
       {/* </Box> */}
     </Box>
   );
