@@ -1,6 +1,9 @@
 const tags = `
 
 -------------------------------------------------
+Hỗ trợ thanh toán trả góp qua thẻ tín dụng
+Hỗ trợ thanh toán trả góp qua ví momo trả sau
+-------------------------------------------------
 
 🌐 Website: https://royaltoys.com.vn
 📹 Youtube: https://www.youtube.com/@royaltoys9765
