@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuid } from "uuid";
 
 const initialState = {
+  preOrder: "",
   productName: "",
   manufacturer: "",
   releaseDate: "",
@@ -19,6 +20,7 @@ const initialState = {
   price: "",
   deposit: "",
   bankFull: "",
+  link: "",
   versions: [],
 };
 
@@ -27,6 +29,8 @@ const postSlice = createSlice({
   initialState,
   reducers: {
     resetForm: (state) => {
+      state.preOrder = "";
+      state.link = "";
       state.productName = "";
       state.manufacturer = "";
       state.releaseDate = "";
@@ -63,6 +67,7 @@ const postSlice = createSlice({
         price: "",
         deposit: "",
         bankFull: "",
+        accessories: "",
       });
     },
     setFormVersion: (state, action) => {

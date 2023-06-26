@@ -15,12 +15,12 @@
 @layer components {
   .gridFormTemplate {
     grid-template-areas:
-      "productName productName productName productName"
+      "preOrder productName productName productName"
       "manufacturer manufacturer releaseDate releaseDate"
       "limit material accessories accessories"
       "ratio height width depth"
       "price price deposit bankFull"
-      "note note note note";
+      "link note note note";
   }
   .gridFormTemplateMobile {
     grid-template-areas:

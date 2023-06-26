@@ -1,16 +1,13 @@
+import { ChevronUpIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
-  Card,
-  Input,
   Select,
   Text,
-  Tooltip,
+  Tooltip
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import InputWithFloatingLabel from "./inputWithFloatingLabel";
 import { toast } from "react-hot-toast";
-import { ChevronUpIcon } from "@chakra-ui/icons";
+import InputWithFloatingLabel from "./inputWithFloatingLabel";
 
 const Price = () => {
   const [price, setPrice] = useState(0);
@@ -74,6 +71,7 @@ const Price = () => {
     toast.success("Copy thành tiền");
   };
   const totalPrice = () => {
+    if (price === 0) return 0;
     const money = price * currencyExchange * 1000;
     if (money < 1000001) return (money + 200000 + ship).toLocaleString();
     if (money > 1000000 && money < 2000001)
@@ -147,25 +145,29 @@ const Price = () => {
         </Text>
       </Tooltip>
 
-        <Text fontWeight={"bold"} className="cursor-pointer self-center" as={"span"}>
-          Kèm phí ship:{" "}
+      <Text
+        fontWeight={"bold"}
+        className="cursor-pointer self-center"
+        as={"span"}
+      >
+        Kèm phí ship:{" "}
+        <Text as={"span"} fontWeight={"normal"}>
+          {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
+        </Text>
+      </Text>
+      <Tooltip label="Click to copy">
+        <Text
+          fontWeight={"bold"}
+          className="cursor-pointer self-center"
+          onClick={handleCopyMoney}
+          as={"span"}
+        >
+          Thành tiền:{" "}
           <Text as={"span"} fontWeight={"normal"}>
-            {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
+            {totalPrice()} VND
           </Text>
         </Text>
-        <Tooltip label="Click to copy">
-          <Text
-            fontWeight={"bold"}
-            className="cursor-pointer self-center"
-            onClick={handleCopyMoney}
-            as={"span"}
-          >
-            Thành tiền:{" "}
-            <Text as={"span"} fontWeight={"normal"}>
-              {totalPrice()} VND
-            </Text>
-          </Text>
-        </Tooltip>
+      </Tooltip>
       {/* </Box> */}
     </Box>
   );

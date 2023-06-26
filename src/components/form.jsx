@@ -1,5 +1,5 @@
 import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
-import { Button } from "@chakra-ui/react";
+import { Button, Select } from "@chakra-ui/react";
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -33,6 +33,7 @@ const Form = () => {
   };
 
   const {
+    preOrder,
     productName,
     manufacturer,
     height,
@@ -48,6 +49,7 @@ const Form = () => {
     releaseDate,
     note,
     versions,
+    link,
   } = postData;
   const inputArr = [
     {
@@ -117,6 +119,11 @@ const Form = () => {
       value: bankFull,
     },
     {
+      label: "Link",
+      name: "link",
+      value: link,
+    },
+    {
       label: "Ghi chú",
       name: "note",
       value: note,
@@ -182,7 +189,7 @@ const Form = () => {
         },
         { label: "Tỉ lệ", name: "ratio", value: version.ratio },
         {
-          label: "Giới hạn riêng",
+          label: "Giới hạn",
           name: "versionLimit",
           value: version.versionLimit,
         },
@@ -193,7 +200,12 @@ const Form = () => {
         { label: "Đặt cọc", name: "deposit", value: version.deposit },
         { label: "Bank full", name: "bankFull", value: version.bankFull },
         {
-          label: "Ghi chú riêng",
+          label: "Phụ kiện",
+          name: "accessories",
+          value: version.accessories,
+        },
+        {
+          label: "Ghi chú",
           name: "versionNote",
           value: version.versionNote,
         },
@@ -214,6 +226,7 @@ const Form = () => {
             "ratio versionLimit versionLimit"
             "height width depth"
             "price deposit bankFull"
+            "accessories accessories accessories"
             "versionNote versionNote versionNote"
             `,
             }}
@@ -258,9 +271,18 @@ const Form = () => {
     });
   };
 
+  const handleChangePreOrder=e=>{
+    const value = e.target.value;
+    dispatch(setFormValue({name:'preOrder',value}))
+  }
+
   return (
     <>
       <div className="grid gap-4 grid-cols-4 gridFormTemplateMobile sm:gridFormTemplate">
+        <Select className="cursor-pointer" style={{ gridArea: "preOrder" }} onChange={handleChangePreOrder} value={preOrder} placeholder="Trạng thái">
+          <option value="[Pre-order] ">Pre-order</option>
+          <option value="[Hàng sẵn] ">Hàng sẵn</option>
+        </Select>
         {inputArr.map((inputItem, key) => (
           <div key={key} style={{ gridArea: inputItem.name }}>
             <InputWithFloatingLabel

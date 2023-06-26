@@ -23,6 +23,8 @@ const useCopy = () => {
     releaseDate,
     note,
     versions,
+    link,
+    preOrder,
   } = postData;
 
   const renderTags = () => {
@@ -106,7 +108,8 @@ const useCopy = () => {
 
     return priceString;
   };
-  const resinDetails = [
+  const resinDetails = [    
+    convertTextToBold(preOrder),
     convertTextToBold(productName + "\n"),
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
@@ -116,6 +119,7 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
+    checkAndRender(link, "Link"),
   ];
   const resinWebDetails = [
     productName + "\n",
@@ -127,8 +131,10 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
+    checkAndRender(link, "Link"),
   ];
   const resinDetailsV2 = [
+    convertTextToBold(preOrder),
     convertTextToBold(productName + "\n"),
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
@@ -137,6 +143,7 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
+    checkAndRender(link, "Link"),
     "\n",
     renderPrice(price, deposit, bankFull),
   ];
@@ -148,6 +155,7 @@ const useCopy = () => {
     checkAndRender(material, "Chất liệu"),
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
+    checkAndRender(link, "Link"),
     checkAndRender(note, "Ghi chú"),
   ];
   const versionDetails = () => {
@@ -158,6 +166,7 @@ const useCopy = () => {
         renderSize(item.ratio, item.height, item.width, item.depth),
         checkAndRenderLimitNumber(item.versionLimit, "Giới hạn"),
         renderPrice(item.price, item.deposit, item.bankFull),
+        checkAndRender(item.accessories, "Phụ kiện"),
         checkAndRender(item.versionNote, "Ghi chú"),
       ])
     );
@@ -198,6 +207,7 @@ const useCopy = () => {
   };
   const renderkit = () => {
     let renderedPost = "";
+    
     resinDetailsV2.forEach((product) => {
       renderedPost += product;
     });
@@ -310,6 +320,27 @@ const useCopy = () => {
       duration: 1000,
     })
   };
+  
+  const copyName = () => {
+    navigator.clipboard.writeText(productName);
+    toast.success('Copy name',{
+      duration: 1000,
+    })
+  };
+  const copyNameProducer = () => {
+    const value =`${productName} - ${manufacturer}`
+    navigator.clipboard.writeText(value);
+    toast.success('Copy name - producer',{
+      duration: 1000,
+    })
+  };
+  const copyTagsBasic = () => {
+    
+    navigator.clipboard.writeText(tags);
+    toast.success('Copy tags basic',{
+      duration: 1000,
+    })
+  };
 
   return {
     copyResinFaceBook,
@@ -319,6 +350,9 @@ const useCopy = () => {
     copyMetalBuild,
     copyFigure,
     copyWeb,
+    copyName,
+    copyTagsBasic,
+    copyNameProducer
   };
 };
 

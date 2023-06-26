@@ -8,6 +8,7 @@ const Preview = () => {
   const postData = useSelector(getPostData);
 
   const {
+    preOrder,
     productName,
     manufacturer,
     height,
@@ -21,6 +22,7 @@ const Preview = () => {
     material,
     accessories,
     releaseDate,
+    link,
     note,
     versions,
   } = postData;
@@ -82,6 +84,7 @@ const Preview = () => {
             "Bank full",
             Number(version.bankFull).toLocaleString() + " VNĐ"
           )}
+          {renderInfo(version.accessories, "Phụ kiện")}
           {renderInfo(version.versionNote, "Ghi chú")}
         </div>
       );
@@ -100,7 +103,7 @@ const Preview = () => {
 
       <Box ml="3">
         <Text fontSize="sm" className="pt-1 pb-3 font-bold">
-          {productName}
+          {preOrder}{productName}
         </Text>
 
         {renderInfo(manufacturer, "Hãng sản xuất")}
@@ -141,6 +144,7 @@ const Preview = () => {
         {renderInfo(accessories, "Phụ kiện")}
         {renderInfo(releaseDate, "Phát hành")}
         {renderInfo(note, "Ghi chú")}
+        {renderInfo(link, "Link")}
 
         {/* //todo: render all version */}
         {renderAllVersionsPost()}
