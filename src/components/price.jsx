@@ -106,16 +106,16 @@ const Price = () => {
         value={price !== 0 ? price : ""}
       />
       <Select
-        className="cursor-pointer"
+        className="cursor-pointer "
         value={ship}
         onChange={(e) => setShip(Number(e.target.value))}
       >
-        <option value={0}> Không tính phí ship</option>
-        <option value={200000}> 200.000</option>
-        <option value={300000}> 300.000</option>
-        <option value={500000}> 500.000</option>
-        <option value={600000}> 600.000</option>
-        <option value={1000000}> 1.000.000</option>
+        <option className="text-black" value={0}> Không tính phí ship</option>
+        <option className="text-black" value={200000}> 200.000</option>
+        <option className="text-black" value={300000}> 300.000</option>
+        <option className="text-black" value={500000}> 500.000</option>
+        <option className="text-black" value={600000}> 600.000</option>
+        <option className="text-black" value={1000000}> 1.000.000</option>
       </Select>
       <InputWithFloatingLabel
         type="number"
