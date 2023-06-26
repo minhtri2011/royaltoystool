@@ -147,7 +147,7 @@ const Price = () => {
 
       <Text
         fontWeight={"bold"}
-        className="cursor-pointer self-center"
+        className="cursor-default self-center"
         as={"span"}
       >
         Kèm phí ship:{" "}
