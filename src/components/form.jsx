@@ -271,18 +271,25 @@ const Form = () => {
     });
   };
 
-  const handleChangePreOrder=e=>{
+  const handleChangePreOrder = (e) => {
     const value = e.target.value;
-    dispatch(setFormValue({name:'preOrder',value}))
-  }
+    dispatch(setFormValue({ name: "preOrder", value }));
+  };
 
   return (
     <>
       <div className="grid gap-4 grid-cols-4 gridFormTemplateMobile sm:gridFormTemplate">
-        <Select className="cursor-pointer" style={{ gridArea: "preOrder" }} onChange={handleChangePreOrder} value={preOrder} placeholder="Trạng thái">
-          <option value="[Pre-order] ">Pre-order</option>
-          <option value="[Hàng sẵn] ">Hàng sẵn</option>
-        </Select>
+        <div style={{ gridArea: "preOrder" }}>
+          <Select
+            className="cursor-pointer !w-full"
+            onChange={handleChangePreOrder}
+            value={preOrder}
+            placeholder="Trạng thái"
+          >
+            <option value="[Pre-order] ">Pre-order</option>
+            <option value="[Hàng sẵn] ">Hàng sẵn</option>
+          </Select>
+        </div>
         {inputArr.map((inputItem, key) => (
           <div key={key} style={{ gridArea: inputItem.name }}>
             <InputWithFloatingLabel

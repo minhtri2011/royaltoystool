@@ -24,6 +24,7 @@
   }
   .gridFormTemplateMobile {
     grid-template-areas:
+      "preOrder preOrder preOrder preOrder"
       "productName productName productName productName"
       "manufacturer manufacturer manufacturer manufacturer"
       "releaseDate releaseDate releaseDate releaseDate"
@@ -33,6 +34,7 @@
       "width width depth depth"
       "price price deposit deposit"
       "bankFull bankFull bankFull bankFull"
+      "link link link link"
       "note note note note";
   }
 }
