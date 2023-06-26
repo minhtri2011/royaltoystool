@@ -24,7 +24,12 @@ const ListButton = () => {
   ];
 
   const handleOpenLinks = () => {
-    links.forEach((link) => window.open(link, "_blank"));
+    links.forEach((link) => {
+      const newWindow = window.open(link, "_blank");
+      if (newWindow) {
+        newWindow.opener = null;
+      }
+    });
   };
 
   return (
