@@ -84,14 +84,14 @@ const Price = () => {
 
   return (
     <Box
-      className={`!fixed right-0 transition-all ease-in-out duration-300 left-0 !bg-orange-400 z-10 p-5 gap-3 grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-6  ${
+      className={`!fixed right-0 transition-all ease-in-out duration-300 left-0 !bg-rose-900 text-white z-10 p-5 gap-3 grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-6  ${
         active ? "bottom-0" : "-bottom-full"
       }`}
     >
       <Tooltip label="Toggle tool bar (Alt + S)">
         <div
           onClick={() => setActive((v) => !v)}
-          className={`absolute scale-75 left-1/2 -translate-x-1/2 bg-orange-400 rounded-full w-10 h-10 flex justify-center cursor-pointer [&:hover]:scale-125 transition-all ${
+          className={`absolute scale-75 left-1/2 -translate-x-1/2 !bg-rose-900 rounded-full w-10 h-10 flex justify-center cursor-pointer [&:hover]:scale-125 transition-all ${
             !active ? " !fixed left-0 -bottom-4" : "-top-4"
           }`}
         >
