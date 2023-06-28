@@ -23,6 +23,7 @@ const ListButton = () => {
     "https://orzgk.com/collections/xian-huo",
     "https://sugotoys.com.au/product-category/pre-order",
     "https://www.hobbyfanclub.com/hfc/home/boardgallery.aspx?forumid=18",
+    "https://www.hottoygk.com.tw/collections/all"
   ];
 
   const handleOpenLinks = () => {
