@@ -20,10 +20,10 @@ const ListButton = () => {
     "https://miraicollectibles.com/all-statues?limit=100",
     "https://www.nightwindshop.com/en/product/all/newest",
     "https://gameharbors.com/best-anime-collectibles-shop",
-    "https://orzgk.com/collections/xian-huo",
-    "https://sugotoys.com.au/product-category/pre-order",
+    "https://orzgk.com/collections/xian-huo?limit=200",
+    "https://sugotoys.com.au/product-category/pre-order/?swoof=1&ppp=200&pa_types=artwork,diorama,model-toys,statue-anime,statue-general&really_curr_tax=136-product_cat",
+    "https://www.hottoygk.com.tw/collections/all",
     "https://www.hobbyfanclub.com/hfc/home/boardgallery.aspx?forumid=18",
-    "https://www.hottoygk.com.tw/collections/all"
   ];
 
   const handleOpenLinks = () => {
