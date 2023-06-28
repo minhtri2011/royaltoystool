@@ -17,10 +17,12 @@ const ListButton = () => {
   } = useCopy();
 
   const links = [
-    "https://www.miraicollectibles.com/all-statues",
+    "https://miraicollectibles.com/all-statues?limit=100",
     "https://www.nightwindshop.com/en/product/all/newest",
+    "https://gameharbors.com/best-anime-collectibles-shop",
     "https://orzgk.com/collections/xian-huo",
-    "https://gameharbors.com/best-anime-collectibles-shop/",
+    "https://sugotoys.com.au/product-category/pre-order",
+    "https://www.hobbyfanclub.com/hfc/home/boardgallery.aspx?forumid=18",
   ];
 
   const handleOpenLinks = () => {
