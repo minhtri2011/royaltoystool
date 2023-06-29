@@ -24,6 +24,8 @@ const ListButton = () => {
     "https://sugotoys.com.au/product-category/pre-order/?swoof=1&ppp=200&pa_types=artwork,diorama,model-toys,statue-anime,statue-general&really_curr_tax=136-product_cat",
     "https://www.hottoygk.com.tw/collections/all",
     "https://www.hobbyfanclub.com/hfc/home/boardgallery.aspx?forumid=18",
+    "https://www.fanaticanimestore.com/pre-order/?sort=newest",
+    "https://www.anitoysgk.com/%E3%80%90Pre-order%E3%80%91-c601340/list---7-2-----r1.html",
   ];
 
   const handleOpenLinks = () => {
@@ -38,23 +40,23 @@ const ListButton = () => {
   return (
     <>
       <div className="flex gap-3 flex-wrap w-full">
-        <Button colorScheme="facebook"  onClick={copyResinFaceBook}>
+        <Button colorScheme="facebook" onClick={copyResinFaceBook}>
           Resin
         </Button>
         {/* <Button colorScheme="facebook" onClick={copyResinFaceBookV2}> Resin v2 </Button> */}
-        <Button colorScheme="orange"  onClick={copyWebResin}>
+        <Button colorScheme="orange" onClick={copyWebResin}>
           Web resin
         </Button>
-        <Button colorScheme="purple"  onClick={copyKit}>
+        <Button colorScheme="purple" onClick={copyKit}>
           Kit
         </Button>
-        <Button colorScheme="red"  onClick={copyMetalBuild}>
+        <Button colorScheme="red" onClick={copyMetalBuild}>
           Metal Build
         </Button>
-        <Button colorScheme="yellow"  onClick={copyFigure}>
+        <Button colorScheme="yellow" onClick={copyFigure}>
           Figure
         </Button>
-        <Button colorScheme="blackAlpha"  onClick={copyWeb}>
+        <Button colorScheme="blackAlpha" onClick={copyWeb}>
           Web
         </Button>
       </div>
