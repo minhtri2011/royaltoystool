@@ -17,15 +17,17 @@ const ListButton = () => {
   } = useCopy();
 
   const links = [
-    "https://miraicollectibles.com/all-statues?limit=100",
+    "https://www.fanaticanimestore.com/pre-order/?sort=newest",
     "https://www.nightwindshop.com/en/product/all/newest",
+    "https://miraicollectibles.com/all-statues?limit=100",
     "https://gameharbors.com/best-anime-collectibles-shop",
     "https://orzgk.com/collections/xian-huo?limit=200",
     "https://sugotoys.com.au/product-category/pre-order/?swoof=1&ppp=200&pa_types=artwork,diorama,model-toys,statue-anime,statue-general&really_curr_tax=136-product_cat",
-    "https://www.hottoygk.com.tw/collections/all",
     "https://www.hobbyfanclub.com/hfc/home/boardgallery.aspx?forumid=18",
-    "https://www.fanaticanimestore.com/pre-order/?sort=newest",
+    "https://www.hottoygk.com.tw/collections/all",
     "https://www.anitoysgk.com/%E3%80%90Pre-order%E3%80%91-c601340/list---7-2-----r1.html",
+    "https://toystation.waca.tw/category/126396/newest",
+    "https://twitter.com/hamajippaR18?lang=zh-Hant",
   ];
 
   const handleOpenLinks = () => {
