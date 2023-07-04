@@ -288,6 +288,7 @@ const Form = () => {
           >
             <option value="[Pre-order] ">Pre-order</option>
             <option value="[Hàng sẵn] ">Hàng sẵn</option>
+            <option value="[Cast off] ">Cast off</option>
           </Select>
         </div>
         {inputArr.map((inputItem, key) => (
