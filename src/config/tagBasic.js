@@ -1,6 +1,8 @@
 const tags = `
 
 -------------------------------------------------
+Hỗ trợ vận chuyển trong và ngoài nước
+-------------------------------------------------
 Hỗ trợ thanh toán trả góp qua thẻ tín dụng
 Hỗ trợ thanh toán trả góp qua ví momo trả sau
 -------------------------------------------------
@@ -11,12 +13,13 @@ Hỗ trợ thanh toán trả góp qua ví momo trả sau
 -RoyalToys: https://www.tiktok.com/@royaltoys_999
 -RoyalToys-Figure: https://www.tiktok.com/@royaltoysfigure
 -Relax: https://www.tiktok.com/@tringuyendev
-🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ  : 1162/2/13 Đường Trường Sa, phường 13, Phú Nhuận, Thành phố Hồ Chí Minh
+
+🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ: 1162/2/13 Đường Trường Sa, phường 13, Phú Nhuận, Thành phố Hồ Chí Minh
 
 #RoyalToys #MoHinh #Decor #DoChoi #royal #toys `;
 
 const resinTag = `#resin #figure #resinArt #anime`;
-const figureTag = `#resin #figure #anime`;
+const figureTag = `#figure #anime`;
 const kitTag = `#kit #modelKit`;
 const metalBuildTag = `#metalBuild`;
 
