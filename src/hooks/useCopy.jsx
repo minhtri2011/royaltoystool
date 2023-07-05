@@ -14,6 +14,7 @@ const useCopy = () => {
     ratio,
     width,
     price,
+    fprice,
     deposit,
     bankFull,
     depth,
@@ -91,7 +92,26 @@ const useCopy = () => {
     return sizeString;
   };
 
+  const renderFPrice = (price, deposit, bankFull) => {
+    if(!price) return ''
+    if (!price && !deposit && !bankFull) return "";
+    let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻 𝐝𝐮̛̣ 𝐤𝐢𝐞̂́𝐧: `;
+    if (price) {
+      priceString += `${(+price).toLocaleString("vi-VN")} VNĐ`;
+    }
+
+    if (deposit) {
+      priceString += ` - 𝗖𝗼̣𝗰: ${(+deposit).toLocaleString("vi-VN")} VNĐ`;
+    }
+
+    if (bankFull) {
+      priceString += `\n𝗕𝗮𝗻𝗸 𝗳𝘂𝗹𝗹: ${(+bankFull).toLocaleString("vi-VN")} VNĐ`;
+    }
+
+    return priceString;
+  };
   const renderPrice = (price, deposit, bankFull) => {
+    if(!price) return ''
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻: `;
     if (price) {
@@ -114,6 +134,7 @@ const useCopy = () => {
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
     renderPrice(price, deposit, bankFull),
+    renderFPrice(fprice, deposit, bankFull),
     checkAndRenderLimitNumber(limit, "Giới hạn"),
     checkAndRender(material, "Chất liệu"),
     checkAndRender(accessories, "Phụ kiện"),
@@ -126,6 +147,7 @@ const useCopy = () => {
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
     renderPrice(price, deposit, bankFull),
+    renderFPrice(fprice, deposit, bankFull),
     checkAndRenderLimitNumber(limit, "Giới hạn"),
     checkAndRender(material, "Chất liệu"),
     checkAndRender(accessories, "Phụ kiện"),
@@ -146,6 +168,7 @@ const useCopy = () => {
     checkAndRender(link, "Link"),
     "\n",
     renderPrice(price, deposit, bankFull),
+    renderFPrice(fprice, deposit, bankFull),
   ];
   const webNoPrice= [
     productName + "\n",

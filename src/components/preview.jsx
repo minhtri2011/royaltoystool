@@ -14,6 +14,7 @@ const Preview = () => {
     height,
     ratio,
     width,
+    fprice,
     price,
     deposit,
     bankFull,
@@ -92,7 +93,7 @@ const Preview = () => {
   };
 
   return (
-    <Card className='p-2'>
+    <Card className="p-2">
       <Flex>
         <Avatar src={logo} />
         <Box ml="3">
@@ -103,7 +104,8 @@ const Preview = () => {
 
       <Box ml="3">
         <Text fontSize="sm" className="pt-1 pb-3 font-bold">
-          {preOrder}{productName}
+          {preOrder}
+          {productName}
         </Text>
 
         {renderInfo(manufacturer, "Hãng sản xuất")}
@@ -120,6 +122,11 @@ const Preview = () => {
         </Text>
         {(price || deposit) && (
           <Text as="span" className="inline-flex">
+            {renderInfo(
+              fprice,
+              "Giá bán dự kiến",
+              Number(fprice).toLocaleString() + " VNĐ"
+            )}
             {renderInfo(
               price,
               "Giá bán",

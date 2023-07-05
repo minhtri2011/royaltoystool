@@ -17,6 +17,7 @@ const initialState = {
   height: "",
   width: "",
   depth: "",
+  fprice: "",
   price: "",
   deposit: "",
   bankFull: "",
@@ -46,6 +47,7 @@ const postSlice = createSlice({
       state.width = "";
       state.depth = "";
       state.price = "";
+      state.fprice = "";
       state.deposit = "";
       state.bankFull = "";
       state.versions = [];

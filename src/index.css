@@ -19,7 +19,7 @@
       "manufacturer manufacturer releaseDate releaseDate"
       "limit material accessories accessories"
       "ratio height width depth"
-      "price price deposit bankFull"
+      "fprice price deposit bankFull"
       "link note note note";
   }
   .gridFormTemplateMobile {
@@ -32,6 +32,7 @@
       "accessories accessories accessories accessories"
       "ratio ratio height height"
       "width width depth depth"
+      "fprice fprice fprice fprice"
       "price price deposit deposit"
       "bankFull bankFull bankFull bankFull"
       "link link link link"

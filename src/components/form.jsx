@@ -39,6 +39,7 @@ const Form = () => {
     height,
     ratio,
     width,
+    fprice,
     price,
     deposit,
     bankFull,
@@ -102,6 +103,11 @@ const Form = () => {
       label: "Sâu",
       name: "depth",
       value: depth,
+    },
+    {
+      label: "Giá bán dự kiến",
+      name: "fprice",
+      value: fprice,
     },
     {
       label: "Giá bán",
