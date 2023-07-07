@@ -311,6 +311,10 @@ const useCopy = () => {
     });
   };
   const copyWeb = () => {
+    if (type === "" || type === "Cast off") {
+      copyWebResin()
+      return;
+    }
     navigator.clipboard.writeText(renderPostWeb());
     toast.success("Copy web basic", {
       duration: 1000,
@@ -373,7 +377,6 @@ const useCopy = () => {
   };
 
   return {
-    copyWebResin,
     copyWeb,
     copyName,
     copyTagsBasic,

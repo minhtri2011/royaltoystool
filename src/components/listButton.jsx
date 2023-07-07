@@ -1,17 +1,17 @@
-import { Button, Stack } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import React from "react";
 import useCopy from "../hooks/useCopy";
 
 const ListButton = () => {
   const {
-    copyWebResin,
     copyWeb,
     copyNameProducer,
     copyName,
     copyTagsBasic,
     copyResinDownloadToolNameProducer,
     copyPrice,
-    copyFaceBook,copyFaceBookV2
+    copyFaceBook,
+    copyFaceBookV2,
   } = useCopy();
 
   const links = [
@@ -66,7 +66,6 @@ const ListButton = () => {
         <Button colorScheme="pink" variant={"solid"} onClick={copyName}>
           Tên
         </Button>
-        {/* <Button colorScheme="facebook" onClick={copyResinFaceBookV2}> Resin v2 </Button> */}
         <Button
           colorScheme="whatsapp"
           variant={"solid"}
@@ -74,12 +73,8 @@ const ListButton = () => {
         >
           Tên - Hãng
         </Button>
-        {/* <Button colorScheme="facebook" onClick={copyResinFaceBookV2}> Resin v2 </Button> */}
-        <Button colorScheme="orange" onClick={copyWebResin}>
-          Web resin
-        </Button>
-        <Button colorScheme="blackAlpha" onClick={copyWeb}>
-          Web others
+        <Button colorScheme="purple" onClick={copyWeb}>
+          Web
         </Button>
         <Button colorScheme="orange" variant={"solid"} onClick={copyPrice}>
           Giá
