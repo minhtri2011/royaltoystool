@@ -21,6 +21,7 @@ const initialState = {
   price: "",
   deposit: "",
   bankFull: "",
+  type: "",
   link: "",
   versions: [],
 };
@@ -46,6 +47,7 @@ const postSlice = createSlice({
       state.height = "";
       state.width = "";
       state.depth = "";
+      state.type= "";
       state.price = "";
       state.fprice = "";
       state.deposit = "";

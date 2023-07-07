@@ -51,90 +51,9 @@ const Form = () => {
     note,
     versions,
     link,
+    type
   } = postData;
-  const inputArr = [
-    {
-      label: "Tên sản phẩm",
-      name: "productName",
-      value: productName,
-      ref: inputProductNameRef,
-    },
-    {
-      label: "Hãng sản xuất",
-      name: "manufacturer",
-      value: manufacturer,
-    },
-    {
-      label: "Ngày phát hành",
-      name: "releaseDate",
-      value: releaseDate,
-    },
-    {
-      label: "Giới hạn",
-      name: "limit",
-      value: limit,
-    },
-    {
-      label: "Chất liệu",
-      name: "material",
-      value: material,
-    },
-    {
-      label: "Phụ kiện",
-      name: "accessories",
-      value: accessories,
-    },
-    {
-      label: "Tỉ lệ",
-      name: "ratio",
-      value: ratio,
-    },
-    {
-      label: "Cao",
-      name: "height",
-      value: height,
-    },
-    {
-      label: "Rộng",
-      name: "width",
-      value: width,
-    },
-    {
-      label: "Sâu",
-      name: "depth",
-      value: depth,
-    },
-    {
-      label: "Giá bán dự kiến",
-      name: "fprice",
-      value: fprice,
-    },
-    {
-      label: "Giá bán",
-      name: "price",
-      value: price,
-    },
-    {
-      label: "Đặt cọc",
-      name: "deposit",
-      value: deposit,
-    },
-    {
-      label: "Bank full",
-      name: "bankFull",
-      value: bankFull,
-    },
-    {
-      label: "Link",
-      name: "link",
-      value: link,
-    },
-    {
-      label: "Ghi chú",
-      name: "note",
-      value: note,
-    },
-  ];
+
   useEffect(() => {
     inputProductNameRef.current && inputProductNameRef.current.focus();
   }, []);
@@ -176,6 +95,7 @@ const Form = () => {
       "ratio",
       "height",
       "width",
+      "fprice",
       "price",
       "depth",
       "bankFull",
@@ -281,10 +201,25 @@ const Form = () => {
     const value = e.target.value;
     dispatch(setFormValue({ name: "preOrder", value }));
   };
+  const handleChangeType= (e) => {
+    const value = e.target.value;
+    dispatch(setFormValue({ name: "type", value }));
+  };
 
   return (
     <>
       <div className="grid gap-4 grid-cols-4 gridFormTemplateMobile sm:gridFormTemplate">
+
+        <div style={{ gridArea: "productName" }}>
+          <InputWithFloatingLabel
+            label="Tên sản phẩm"
+            name="productName"
+            value={productName}
+            ref={inputProductNameRef}
+            type={checkType("productName")}
+            onChange={handleInputChange}
+          />
+        </div>
         <div style={{ gridArea: "preOrder" }}>
           <Select
             className="cursor-pointer !w-full"
@@ -292,21 +227,172 @@ const Form = () => {
             value={preOrder}
             placeholder="Trạng thái"
           >
-            <option value="[Pre-order] ">Pre-order</option>
+            <option value="[Pre order] ">Pre-order</option>
             <option value="[Hàng sẵn] ">Hàng sẵn</option>
-            <option value="[Cast off] ">Cast off</option>
           </Select>
         </div>
-        {inputArr.map((inputItem, key) => (
-          <div key={key} style={{ gridArea: inputItem.name }}>
-            <InputWithFloatingLabel
-              {...inputItem}
-              ref={inputItem.ref ? inputItem.ref : null}
-              type={checkType(inputItem.name)}
-              onChange={handleInputChange}
-            />
-          </div>
-        ))}
+        <div style={{ gridArea: "type" }}>
+          <Select
+            className="cursor-pointer !w-full"
+            onChange={handleChangeType}
+            value={type}
+            placeholder="Loại sản phẩm (mặc định resin basic)"
+          >
+            <option value="Cast off">Cast off</option>
+            <option value="Model kit">Model kit</option>
+            <option value="Metal build">Metal build</option>
+          </Select>
+        </div>
+
+        <div style={{ gridArea: "manufacturer" }}>
+          <InputWithFloatingLabel
+            label="Hãng sản xuất"
+            name="manufacturer"
+            value={manufacturer}
+            type={checkType("manufacturer")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "releaseDate" }}>
+          <InputWithFloatingLabel
+            label="Ngày phát hành"
+            name="releaseDate"
+            value={releaseDate}
+            type={checkType("releaseDate")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "limit" }}>
+          <InputWithFloatingLabel
+            label="Giới hạn"
+            name="limit"
+            value={limit}
+            type={checkType("limit")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "material" }}>
+          <InputWithFloatingLabel
+            label="Chất liệu"
+            name="material"
+            value={material}
+            type={checkType("material")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "accessories" }}>
+          <InputWithFloatingLabel
+            label="Phụ kiện"
+            name="accessories"
+            value={accessories}
+            type={checkType("accessories")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "ratio" }}>
+          <InputWithFloatingLabel
+            label="Tỉ lệ"
+            name="ratio"
+            value={ratio}
+            type={checkType("ratio")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "height" }}>
+          <InputWithFloatingLabel
+            label="Cao"
+            name="height"
+            value={height}
+            type={checkType("height")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "width" }}>
+          <InputWithFloatingLabel
+            label="Rộng"
+            name="width"
+            value={width}
+            type={checkType("width")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "depth" }}>
+          <InputWithFloatingLabel
+            label="Sâu"
+            name="depth"
+            value={depth}
+            type={checkType("depth")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "fprice" }}>
+          <InputWithFloatingLabel
+            label="Giá bán dự kiến"
+            name="fprice"
+            value={fprice}
+            type={checkType("fprice")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "price" }}>
+          <InputWithFloatingLabel
+            label="Giá bán"
+            name="price"
+            value={price}
+            type={checkType("price")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "deposit" }}>
+          <InputWithFloatingLabel
+            label="Đặt cọc"
+            name="deposit"
+            value={deposit}
+            type={checkType("deposit")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "bankFull" }}>
+          <InputWithFloatingLabel
+            label="Bank full"
+            name="bankFull"
+            value={bankFull}
+            type={checkType("bankFull")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "link" }}>
+          <InputWithFloatingLabel
+            label="Link"
+            name="link"
+            value={link}
+            type={checkType("link")}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div style={{ gridArea: "note" }}>
+          <InputWithFloatingLabel
+            label="Ghi chú"
+            name="note"
+            value={note}
+            type={checkType("note")}
+            onChange={handleInputChange}
+          />
+        </div>
       </div>
       <div>{renderAllVersions()}</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">

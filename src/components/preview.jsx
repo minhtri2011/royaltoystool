@@ -25,6 +25,7 @@ const Preview = () => {
     releaseDate,
     link,
     note,
+    type,
     versions,
   } = postData;
 
@@ -106,6 +107,9 @@ const Preview = () => {
         <Text fontSize="sm" className="pt-1 pb-3 font-bold">
           {preOrder}
           {productName}
+          <Text fontSize="sm" className="pt-1 pb-3 font-normal" as={"span"}>
+            {type && ' (' + type + ')'}
+          </Text>
         </Text>
 
         {renderInfo(manufacturer, "Hãng sản xuất")}

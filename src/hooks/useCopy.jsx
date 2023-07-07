@@ -24,6 +24,7 @@ const useCopy = () => {
     deposit,
     bankFull,
     depth,
+    type,
     limit,
     material,
     accessories,
@@ -59,6 +60,11 @@ const useCopy = () => {
       }
     });
     return tagRender;
+  };
+
+  const checkTypeAndRenderName = (productName, type) => {
+    if (type) return convertTextToBold(productName) + " (" + type + ")" + "\n";
+    return convertTextToBold(productName + "\n");
   };
 
   const checkAndRender = (value, title, downLine) => {
@@ -134,20 +140,7 @@ const useCopy = () => {
 
     return priceString;
   };
-  const resinDetails = [
-    convertTextToBold(preOrder),
-    convertTextToBold(productName + "\n"),
-    checkAndRender(manufacturer, "HSX"),
-    renderSize(ratio, height, width, depth),
-    renderPrice(price, deposit, bankFull),
-    renderFPrice(fprice, deposit, bankFull),
-    checkAndRenderLimitNumber(limit, "Giới hạn"),
-    checkAndRender(material, "Chất liệu"),
-    checkAndRender(accessories, "Phụ kiện"),
-    checkAndRender(releaseDate, "Phát hành"),
-    checkAndRender(note, "Ghi chú"),
-    checkAndRender(link, "Link"),
-  ];
+
   const resinWebDetails = [
     productName + "\n",
     checkAndRender(manufacturer, "HSX"),
@@ -161,9 +154,25 @@ const useCopy = () => {
     checkAndRender(note, "Ghi chú"),
     checkAndRender(link, "Link"),
   ];
+
+  const resinDetails = [
+    convertTextToBold(preOrder),
+    checkTypeAndRenderName(productName, type),
+    checkAndRender(manufacturer, "HSX"),
+    renderSize(ratio, height, width, depth),
+    renderPrice(price, deposit, bankFull),
+    renderFPrice(fprice, deposit, bankFull),
+    checkAndRenderLimitNumber(limit, "Giới hạn"),
+    checkAndRender(material, "Chất liệu"),
+    checkAndRender(accessories, "Phụ kiện"),
+    checkAndRender(releaseDate, "Phát hành"),
+    checkAndRender(note, "Ghi chú"),
+    checkAndRender(link, "Link"),
+  ];
+
   const resinDetailsV2 = [
     convertTextToBold(preOrder),
-    convertTextToBold(productName + "\n"),
+    checkTypeAndRenderName(productName, type),
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
     checkAndRenderLimitNumber(limit, "Giới hạn"),
@@ -176,6 +185,7 @@ const useCopy = () => {
     renderPrice(price, deposit, bankFull),
     renderFPrice(fprice, deposit, bankFull),
   ];
+
   const webNoPrice = [
     productName + "\n",
     checkAndRender(manufacturer, "HSX"),
@@ -214,8 +224,24 @@ const useCopy = () => {
         renderedPost += product;
       });
     });
+
     renderedPost += tags;
-    renderedPost += resinTag;
+
+    switch (type) {
+      case "Cast off":
+        renderedPost += resinTag + " #castOff";
+        break;
+      case "Model kit":
+        renderedPost += kitTag;
+        break;
+      case "Metal build":
+        renderedPost += metalBuildTag;
+        break;
+
+      default:
+        renderedPost += resinTag;
+        break;
+    }
     renderedPost += renderTags();
     return renderedPost;
   };
@@ -229,57 +255,28 @@ const useCopy = () => {
         renderedPost += product;
       });
     });
-    renderedPost += tags;
-    renderedPost += resinTag;
-    renderedPost += renderTags();
-    return renderedPost;
-  };
-  const renderkit = () => {
-    let renderedPost = "";
 
-    resinDetailsV2.forEach((product) => {
-      renderedPost += product;
-    });
-    versionDetails().forEach((version) => {
-      version.forEach((product) => {
-        renderedPost += product;
-      });
-    });
     renderedPost += tags;
-    renderedPost += kitTag;
+
+    switch (type) {
+      case "Cast off":
+        renderedPost += resinTag + " #castOff";
+        break;
+      case "Model kit":
+        renderedPost += kitTag;
+        break;
+      case "Metal build":
+        renderedPost += metalBuildTag;
+        break;
+
+      default:
+        renderedPost += resinTag;
+        break;
+    }
     renderedPost += renderTags();
     return renderedPost;
   };
-  const renderMB = () => {
-    let renderedPost = "";
-    resinDetailsV2.forEach((product) => {
-      renderedPost += product;
-    });
-    versionDetails().forEach((version) => {
-      version.forEach((product) => {
-        renderedPost += product;
-      });
-    });
-    renderedPost += tags;
-    renderedPost += metalBuildTag;
-    renderedPost += renderTags();
-    return renderedPost;
-  };
-  const renderFigure = () => {
-    let renderedPost = "";
-    resinDetailsV2.forEach((product) => {
-      renderedPost += product;
-    });
-    versionDetails().forEach((version) => {
-      version.forEach((product) => {
-        renderedPost += product;
-      });
-    });
-    renderedPost += tags;
-    renderedPost += figureTag;
-    renderedPost += renderTags();
-    return renderedPost;
-  };
+
   const renderPostWebResin = () => {
     let renderedPost = "";
     resinWebDetails.forEach((product) => {
@@ -307,39 +304,9 @@ const useCopy = () => {
 
   //todo: copy func
 
-  const copyResinFaceBook = () => {
-    navigator.clipboard.writeText(renderPost());
-    toast.success("Copy resin facebook v1", {
-      duration: 1000,
-    });
-  };
-  const copyResinFaceBookV2 = () => {
-    navigator.clipboard.writeText(renderPostV2());
-    toast.success("Copy resin facebook v2", {
-      duration: 1000,
-    });
-  };
   const copyWebResin = () => {
     navigator.clipboard.writeText(renderPostWebResin());
     toast.success("Copy Web Resin", {
-      duration: 1000,
-    });
-  };
-  const copyKit = () => {
-    navigator.clipboard.writeText(renderkit());
-    toast.success("Copy facebook kit", {
-      duration: 1000,
-    });
-  };
-  const copyMetalBuild = () => {
-    navigator.clipboard.writeText(renderMB());
-    toast.success("Copy facebook metal build", {
-      duration: 1000,
-    });
-  };
-  const copyFigure = () => {
-    navigator.clipboard.writeText(renderFigure());
-    toast.success("Copy facebook figure", {
       duration: 1000,
     });
   };
@@ -392,20 +359,29 @@ const useCopy = () => {
       return;
     }
   };
+  const copyFaceBook = () => {
+    navigator.clipboard.writeText(renderPost());
+    toast.success("Copy facebook", {
+      duration: 1000,
+    });
+  };
+  const copyFaceBookV2 = () => {
+    navigator.clipboard.writeText(renderPostV2());
+    toast.success("Copy facebook v2", {
+      duration: 1000,
+    });
+  };
 
   return {
-    copyResinFaceBook,
-    copyResinFaceBookV2,
     copyWebResin,
-    copyKit,
-    copyMetalBuild,
-    copyFigure,
     copyWeb,
     copyName,
     copyTagsBasic,
     copyNameProducer,
     copyResinDownloadToolNameProducer,
     copyPrice,
+    copyFaceBook,
+    copyFaceBookV2,
   };
 };
 

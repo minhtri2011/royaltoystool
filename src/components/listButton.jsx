@@ -4,18 +4,14 @@ import useCopy from "../hooks/useCopy";
 
 const ListButton = () => {
   const {
-    copyResinFaceBook,
-    copyResinFaceBookV2,
     copyWebResin,
-    copyFigure,
-    copyKit,
-    copyMetalBuild,
     copyWeb,
     copyNameProducer,
     copyName,
     copyTagsBasic,
     copyResinDownloadToolNameProducer,
     copyPrice,
+    copyFaceBook,copyFaceBookV2
   } = useCopy();
 
   const links = [
@@ -44,6 +40,13 @@ const ListButton = () => {
   return (
     <>
       <div className=" flex gap-3 flex-wrap w-full">
+        <Button colorScheme="facebook" onClick={copyFaceBook}>
+          Facebook
+        </Button>
+        <Button colorScheme="facebook" onClick={copyFaceBookV2}>
+          Facebook v2
+        </Button>
+
         <Button colorScheme="teal" variant={"outline"} onClick={copyTagsBasic}>
           Tags
         </Button>
@@ -58,7 +61,7 @@ const ListButton = () => {
           Resin / Tên - Hãng
         </Button>
       </div>
-    
+
       <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2">
         <Button colorScheme="pink" variant={"solid"} onClick={copyName}>
           Tên
@@ -81,22 +84,6 @@ const ListButton = () => {
         <Button colorScheme="orange" variant={"solid"} onClick={copyPrice}>
           Giá
         </Button>
-      </div>
-      <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2 ">
-        <Button colorScheme="facebook" onClick={copyResinFaceBook}>
-          Resin
-        </Button>
-        
-        <Button colorScheme="purple" onClick={copyKit}>
-          Kit
-        </Button>
-        <Button colorScheme="red" onClick={copyMetalBuild}>
-          Metal Build
-        </Button>
-        <Button colorScheme="yellow" onClick={copyFigure}>
-          Figure
-        </Button>
-       
       </div>
     </>
   );

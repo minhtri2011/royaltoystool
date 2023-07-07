@@ -8,14 +8,15 @@
     padding: 0;
     font-family: inherit;
   }
-  body{
-    @apply lg:overflow-hidden
+  body {
+    @apply lg:overflow-hidden;
   }
 }
 @layer components {
   .gridFormTemplate {
     grid-template-areas:
-      "preOrder productName productName productName"
+      "productName productName productName productName"
+      "preOrder preOrder type type"
       "manufacturer manufacturer releaseDate releaseDate"
       "limit material accessories accessories"
       "ratio height width depth"
@@ -24,7 +25,7 @@
   }
   .gridFormTemplateMobile {
     grid-template-areas:
-      "preOrder preOrder preOrder preOrder"
+    "preOrder preOrder type type"
       "productName productName productName productName"
       "manufacturer manufacturer manufacturer manufacturer"
       "releaseDate releaseDate releaseDate releaseDate"
