@@ -14,6 +14,8 @@ const ListButton = () => {
     copyNameProducer,
     copyName,
     copyTagsBasic,
+    copyResinDownloadToolNameProducer,
+    copyPrice,
   } = useCopy();
 
   const links = [
@@ -41,14 +43,50 @@ const ListButton = () => {
 
   return (
     <>
-      <div className="flex gap-3 flex-wrap w-full">
-        <Button colorScheme="facebook" onClick={copyResinFaceBook}>
-          Resin
+      <div className=" flex gap-3 flex-wrap w-full">
+        <Button colorScheme="teal" variant={"outline"} onClick={copyTagsBasic}>
+          Tags
+        </Button>
+        <Button colorScheme="red" variant={"outline"} onClick={handleOpenLinks}>
+          Links cast off
+        </Button>
+        <Button
+          colorScheme="purple"
+          variant={"outline"}
+          onClick={copyResinDownloadToolNameProducer}
+        >
+          Resin / Tên - Hãng
+        </Button>
+      </div>
+    
+      <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2">
+        <Button colorScheme="pink" variant={"solid"} onClick={copyName}>
+          Tên
+        </Button>
+        {/* <Button colorScheme="facebook" onClick={copyResinFaceBookV2}> Resin v2 </Button> */}
+        <Button
+          colorScheme="whatsapp"
+          variant={"solid"}
+          onClick={copyNameProducer}
+        >
+          Tên - Hãng
         </Button>
         {/* <Button colorScheme="facebook" onClick={copyResinFaceBookV2}> Resin v2 </Button> */}
         <Button colorScheme="orange" onClick={copyWebResin}>
           Web resin
         </Button>
+        <Button colorScheme="blackAlpha" onClick={copyWeb}>
+          Web others
+        </Button>
+        <Button colorScheme="orange" variant={"solid"} onClick={copyPrice}>
+          Giá
+        </Button>
+      </div>
+      <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2 ">
+        <Button colorScheme="facebook" onClick={copyResinFaceBook}>
+          Resin
+        </Button>
+        
         <Button colorScheme="purple" onClick={copyKit}>
           Kit
         </Button>
@@ -58,28 +96,7 @@ const ListButton = () => {
         <Button colorScheme="yellow" onClick={copyFigure}>
           Figure
         </Button>
-        <Button colorScheme="blackAlpha" onClick={copyWeb}>
-          Web
-        </Button>
-      </div>
-      <div className="mt-2 flex gap-3 flex-wrap w-full">
-        <Button colorScheme="purple" variant={"outline"} onClick={copyName}>
-          Tên
-        </Button>
-        {/* <Button colorScheme="facebook" onClick={copyResinFaceBookV2}> Resin v2 </Button> */}
-        <Button
-          colorScheme="whatsapp"
-          variant={"outline"}
-          onClick={copyNameProducer}
-        >
-          Tên - Hãng
-        </Button>
-        <Button colorScheme="teal" variant={"outline"} onClick={copyTagsBasic}>
-          Tags
-        </Button>
-        <Button colorScheme="red" variant={"outline"} onClick={handleOpenLinks}>
-          Links cast off
-        </Button>
+       
       </div>
     </>
   );

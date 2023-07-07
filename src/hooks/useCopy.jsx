@@ -1,9 +1,15 @@
 import { useSelector } from "react-redux";
 import { getPostData } from "../redux/slices/postSlice";
 
-import convertTextToBold from "../feature/convertTextToBold";
-import { figureTag, kitTag, metalBuildTag, resinTag, tags } from "../config/tagBasic";
 import { toast } from "react-hot-toast";
+import {
+  figureTag,
+  kitTag,
+  metalBuildTag,
+  resinTag,
+  tags,
+} from "../config/tagBasic";
+import convertTextToBold from "../feature/convertTextToBold";
 
 const useCopy = () => {
   const postData = useSelector(getPostData);
@@ -36,24 +42,24 @@ const useCopy = () => {
       if (variable.trim() !== "") {
         // Xóa tất cả các kí tự đặc biệt
         var cleanedString = variable.replace(/[^\w\s]/g, "");
-  
+
         // Tách từ trong chuỗi đã làm sạch
-        var words = cleanedString.split(" ").filter(variable => variable.trim() !== "");;
+        var words = cleanedString
+          .split(" ")
+          .filter((variable) => variable.trim() !== "");
         // Tạo tag cho từng từ
         var tags = words.map(function (word) {
           // Loại bỏ khoảng trắng thừa trước và sau từ
           var trimmedWord = word.trim();
           return "#" + trimmedWord;
         });
-  
+
         // In các tag
         tagRender += " " + tags.join(" ");
       }
     });
     return tagRender;
   };
-  
-  
 
   const checkAndRender = (value, title, downLine) => {
     if (!value) return "";
@@ -93,7 +99,7 @@ const useCopy = () => {
   };
 
   const renderFPrice = (price, deposit, bankFull) => {
-    if(!price) return ''
+    if (!price) return "";
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻 𝐝𝐮̛̣ 𝐤𝐢𝐞̂́𝐧: `;
     if (price) {
@@ -111,7 +117,7 @@ const useCopy = () => {
     return priceString;
   };
   const renderPrice = (price, deposit, bankFull) => {
-    if(!price) return ''
+    if (!price) return "";
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻: `;
     if (price) {
@@ -128,7 +134,7 @@ const useCopy = () => {
 
     return priceString;
   };
-  const resinDetails = [    
+  const resinDetails = [
     convertTextToBold(preOrder),
     convertTextToBold(productName + "\n"),
     checkAndRender(manufacturer, "HSX"),
@@ -170,7 +176,7 @@ const useCopy = () => {
     renderPrice(price, deposit, bankFull),
     renderFPrice(fprice, deposit, bankFull),
   ];
-  const webNoPrice= [
+  const webNoPrice = [
     productName + "\n",
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
@@ -230,7 +236,7 @@ const useCopy = () => {
   };
   const renderkit = () => {
     let renderedPost = "";
-    
+
     resinDetailsV2.forEach((product) => {
       renderedPost += product;
     });
@@ -303,66 +309,88 @@ const useCopy = () => {
 
   const copyResinFaceBook = () => {
     navigator.clipboard.writeText(renderPost());
-    toast.success('Copy resin facebook v1',{
+    toast.success("Copy resin facebook v1", {
       duration: 1000,
-    })
+    });
   };
   const copyResinFaceBookV2 = () => {
     navigator.clipboard.writeText(renderPostV2());
-    toast.success('Copy resin facebook v2',{
+    toast.success("Copy resin facebook v2", {
       duration: 1000,
-    })
+    });
   };
   const copyWebResin = () => {
     navigator.clipboard.writeText(renderPostWebResin());
-    toast.success('Copy Web Resin',{
+    toast.success("Copy Web Resin", {
       duration: 1000,
-    })
+    });
   };
   const copyKit = () => {
     navigator.clipboard.writeText(renderkit());
-    toast.success('Copy facebook kit',{
+    toast.success("Copy facebook kit", {
       duration: 1000,
-    })
+    });
   };
   const copyMetalBuild = () => {
     navigator.clipboard.writeText(renderMB());
-    toast.success('Copy facebook metal build',{
+    toast.success("Copy facebook metal build", {
       duration: 1000,
-    })
+    });
   };
   const copyFigure = () => {
     navigator.clipboard.writeText(renderFigure());
-    toast.success('Copy facebook figure',{
+    toast.success("Copy facebook figure", {
       duration: 1000,
-    })
+    });
   };
   const copyWeb = () => {
     navigator.clipboard.writeText(renderPostWeb());
-    toast.success('Copy web basic',{
+    toast.success("Copy web basic", {
       duration: 1000,
-    })
+    });
   };
-  
+
   const copyName = () => {
     navigator.clipboard.writeText(productName);
-    toast.success('Copy name',{
+    toast.success("Copy name", {
       duration: 1000,
-    })
+    });
   };
   const copyNameProducer = () => {
-    const value =`${productName} - ${manufacturer}`
+    const value = `${productName} - ${manufacturer}`;
     navigator.clipboard.writeText(value);
-    toast.success('Copy name - producer',{
+    toast.success("Copy name - producer", {
       duration: 1000,
-    })
+    });
+  };
+  const copyResinDownloadToolNameProducer = () => {
+    const value = `${productName} - ${manufacturer}`;
+    navigator.clipboard.writeText(value);
+    toast.success("resin/Copy name - producer", {
+      duration: 1000,
+    });
   };
   const copyTagsBasic = () => {
-    
     navigator.clipboard.writeText(tags);
-    toast.success('Copy tags basic',{
+    toast.success("Copy tags basic", {
       duration: 1000,
-    })
+    });
+  };
+  const copyPrice = () => {
+    if (price && price > 0) {
+      navigator.clipboard.writeText(price);
+      toast.success("Copy price success", {
+        duration: 1000,
+      });
+      return;
+    }
+    if (versions && versions.length > 0) {
+      navigator.clipboard.writeText(versions[0].price);
+      toast.success("Copy price success", {
+        duration: 1000,
+      });
+      return;
+    }
   };
 
   return {
@@ -375,7 +403,9 @@ const useCopy = () => {
     copyWeb,
     copyName,
     copyTagsBasic,
-    copyNameProducer
+    copyNameProducer,
+    copyResinDownloadToolNameProducer,
+    copyPrice,
   };
 };
 
