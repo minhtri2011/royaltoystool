@@ -124,7 +124,7 @@ const Preview = () => {
             {depth && " x "} {depth} {height && " cm"}{" "}
           </Text>
         </Text>
-        {(price || deposit) && (
+        {(fprice || price || deposit) && (
           <Text as="span" className="inline-flex">
             {renderInfo(
               fprice,
