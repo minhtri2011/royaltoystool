@@ -155,7 +155,7 @@ const Preview = () => {
         {renderInfo(accessories, "Phụ kiện")}
         {renderInfo(releaseDate, "Phát hành")}
         {renderInfo(note, "Ghi chú")}
-        {renderInfo(link, "Link")}
+        {renderInfo(link, "Link Uncensored")}
 
         {/* //todo: render all version */}
         {renderAllVersionsPost()}

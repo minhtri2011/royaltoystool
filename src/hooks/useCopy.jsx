@@ -152,7 +152,7 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
-    checkAndRender(link, "Link"),
+    checkAndRender(link, "Link Uncensored"),
   ];
 
   const resinDetails = [
@@ -167,7 +167,7 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
-    checkAndRender(link, "Link"),
+    checkAndRender(link, "Link Uncensored"),
   ];
 
   const resinDetailsV2 = [
@@ -180,7 +180,7 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
-    checkAndRender(link, "Link"),
+    checkAndRender(link, "Link Uncensored"),
     "\n",
     renderPrice(price, deposit, bankFull),
     renderFPrice(fprice, deposit, bankFull),
@@ -194,7 +194,7 @@ const useCopy = () => {
     checkAndRender(material, "Chất liệu"),
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
-    checkAndRender(link, "Link"),
+    checkAndRender(link, "Link Uncensored"),
     checkAndRender(note, "Ghi chú"),
   ];
   const versionDetails = () => {
