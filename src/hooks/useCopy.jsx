@@ -441,9 +441,9 @@ const useCopy = () => {
     });
   };
   const copyResinDownloadToolNameProducer = () => {
-    const value = `${productName} - ${manufacturer}`;
+    const value = `resin/${productName} - ${manufacturer}`;
     navigator.clipboard.writeText(value);
-    toast.success("resin/Copy name - producer", {
+    toast.success("Copy name - producer", {
       duration: 1000,
     });
   };
