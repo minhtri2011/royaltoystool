@@ -334,15 +334,7 @@ const Form = () => {
           />
         </div>
 
-        <div style={{ gridArea: "fprice" }}>
-          <InputWithFloatingLabel
-            label="Giá bán dự kiến"
-            name="fprice"
-            value={fprice}
-            type={checkType("fprice")}
-            onChange={handleInputChange}
-          />
-        </div>
+     
 
         <div style={{ gridArea: "price" }}>
           <InputWithFloatingLabel
@@ -363,13 +355,21 @@ const Form = () => {
             onChange={handleInputChange}
           />
         </div>
-
         <div style={{ gridArea: "bankFull" }}>
           <InputWithFloatingLabel
             label="Bank full"
             name="bankFull"
             value={bankFull}
             type={checkType("bankFull")}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div style={{ gridArea: "fprice" }}>
+          <InputWithFloatingLabel
+            label="Giá bán dự kiến"
+            name="fprice"
+            value={fprice}
+            type={checkType("fprice")}
             onChange={handleInputChange}
           />
         </div>
