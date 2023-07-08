@@ -13,7 +13,6 @@ const useRenderTags = () => {
   const renderTags = () => {
     let tagRender = "";
     const converProductName = removeDiacritics(productName);
-    console.log(converProductName);
     const variables = [converProductName, manufacturer];
     variables.forEach(function (variable) {
       // Kiểm tra biến có giá trị không rỗng
