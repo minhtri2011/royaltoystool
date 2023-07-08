@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import logo from "../assets/logo.jpg";
 import { getPostData } from "../redux/slices/postSlice";
+import useRenderTags from "../hooks/useRenderTags";
 
 const Preview = () => {
   const postData = useSelector(getPostData);
@@ -28,6 +29,7 @@ const Preview = () => {
     type,
     versions,
   } = postData;
+  const finalTags = useRenderTags();
 
   const renderInfo = (data, title, final) => {
     if (!data) return;
@@ -108,7 +110,7 @@ const Preview = () => {
           {preOrder}
           {productName}
           <Text fontSize="sm" className="pt-1 pb-3 font-normal" as={"span"}>
-            {type && ' (' + type + ')'}
+            {type && " (" + type + ")"}
           </Text>
         </Text>
 

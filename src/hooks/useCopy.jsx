@@ -2,17 +2,13 @@ import { useSelector } from "react-redux";
 import { getPostData } from "../redux/slices/postSlice";
 
 import { toast } from "react-hot-toast";
-import {
-  figureTag,
-  kitTag,
-  metalBuildTag,
-  resinTag,
-  tags,
-} from "../config/tagBasic";
+import { kitTag, metalBuildTag, resinTag, tags } from "../config/tagBasic";
 import convertTextToBold from "../feature/convertTextToBold";
+import useRenderTags from "./useRenderTags";
 
 const useCopy = () => {
   const postData = useSelector(getPostData);
+  const tagsFinal = useRenderTags();
   const {
     productName,
     manufacturer,
@@ -35,179 +31,176 @@ const useCopy = () => {
     preOrder,
   } = postData;
 
-  function removeDiacritics(str) {
-    const diacriticsMap = {
-      á: "a",
-      à: "a",
-      ả: "a",
-      ã: "a",
-      ạ: "a",
-      ă: "a",
-      ắ: "a",
-      ằ: "a",
-      ẳ: "a",
-      ẵ: "a",
-      ặ: "a",
-      â: "a",
-      ấ: "a",
-      ầ: "a",
-      ẩ: "a",
-      ẫ: "a",
-      ậ: "a",
-      é: "e",
-      è: "e",
-      ẻ: "e",
-      ẽ: "e",
-      ẹ: "e",
-      ê: "e",
-      ế: "e",
-      ề: "e",
-      ể: "e",
-      ễ: "e",
-      ệ: "e",
-      í: "i",
-      ì: "i",
-      ỉ: "i",
-      ĩ: "i",
-      ị: "i",
-      ó: "o",
-      ò: "o",
-      ỏ: "o",
-      õ: "o",
-      ọ: "o",
-      ô: "o",
-      ố: "o",
-      ồ: "o",
-      ổ: "o",
-      ỗ: "o",
-      ộ: "o",
-      ơ: "o",
-      ớ: "o",
-      ờ: "o",
-      ở: "o",
-      ỡ: "o",
-      ợ: "o",
-      ú: "u",
-      ù: "u",
-      ủ: "u",
-      ũ: "u",
-      ụ: "u",
-      ư: "u",
-      ứ: "u",
-      ừ: "u",
-      ử: "u",
-      ữ: "u",
-      ự: "u",
-      ý: "y",
-      ỳ: "y",
-      ỷ: "y",
-      ỹ: "y",
-      ỵ: "y",
-      đ: "d",
-      Á: "A",
-      À: "A",
-      Ả: "A",
-      Ã: "A",
-      Ạ: "A",
-      Ă: "A",
-      Ắ: "A",
-      Ằ: "A",
-      Ẳ: "A",
-      Ẵ: "A",
-      Ặ: "A",
-      Â: "A",
-      Ấ: "A",
-      Ầ: "A",
-      Ẩ: "A",
-      Ẫ: "A",
-      Ậ: "A",
-      É: "E",
-      È: "E",
-      Ẻ: "E",
-      Ẽ: "E",
-      Ẹ: "E",
-      Ê: "E",
-      Ế: "E",
-      Ề: "E",
-      Ể: "E",
-      Ễ: "E",
-      Ệ: "E",
-      Í: "I",
-      Ì: "I",
-      Ỉ: "I",
-      Ĩ: "I",
-      Ị: "I",
-      Ó: "O",
-      Ò: "O",
-      Ỏ: "O",
-      Õ: "O",
-      Ọ: "O",
-      Ô: "O",
-      Ố: "O",
-      Ồ: "O",
-      Ổ: "O",
-      Ỗ: "O",
-      Ộ: "O",
-      Ơ: "O",
-      Ớ: "O",
-      Ờ: "O",
-      Ở: "O",
-      Ỡ: "O",
-      Ợ: "O",
-      Ú: "U",
-      Ù: "U",
-      Ủ: "U",
-      Ũ: "U",
-      Ụ: "U",
-      Ư: "U",
-      Ứ: "U",
-      Ừ: "U",
-      Ử: "U",
-      Ữ: "U",
-      Ự: "U",
-      Ý: "Y",
-      Ỳ: "Y",
-      Ỷ: "Y",
-      Ỹ: "Y",
-      Ỵ: "Y",
-      Đ: "D",
-    };
+  // function removeDiacritics(str) {
+  //   const diacriticsMap = {
+  //     á: "a",
+  //     à: "a",
+  //     ả: "a",
+  //     ã: "a",
+  //     ạ: "a",
+  //     ă: "a",
+  //     ắ: "a",
+  //     ằ: "a",
+  //     ẳ: "a",
+  //     ẵ: "a",
+  //     ặ: "a",
+  //     â: "a",
+  //     ấ: "a",
+  //     ầ: "a",
+  //     ẩ: "a",
+  //     ẫ: "a",
+  //     ậ: "a",
+  //     é: "e",
+  //     è: "e",
+  //     ẻ: "e",
+  //     ẽ: "e",
+  //     ẹ: "e",
+  //     ê: "e",
+  //     ế: "e",
+  //     ề: "e",
+  //     ể: "e",
+  //     ễ: "e",
+  //     ệ: "e",
+  //     í: "i",
+  //     ì: "i",
+  //     ỉ: "i",
+  //     ĩ: "i",
+  //     ị: "i",
+  //     ó: "o",
+  //     ò: "o",
+  //     ỏ: "o",
+  //     õ: "o",
+  //     ọ: "o",
+  //     ô: "o",
+  //     ố: "o",
+  //     ồ: "o",
+  //     ổ: "o",
+  //     ỗ: "o",
+  //     ộ: "o",
+  //     ơ: "o",
+  //     ớ: "o",
+  //     ờ: "o",
+  //     ở: "o",
+  //     ỡ: "o",
+  //     ợ: "o",
+  //     ú: "u",
+  //     ù: "u",
+  //     ủ: "u",
+  //     ũ: "u",
+  //     ụ: "u",
+  //     ư: "u",
+  //     ứ: "u",
+  //     ừ: "u",
+  //     ử: "u",
+  //     ữ: "u",
+  //     ự: "u",
+  //     ý: "y",
+  //     ỳ: "y",
+  //     ỷ: "y",
+  //     ỹ: "y",
+  //     ỵ: "y",
+  //     đ: "d",
+  //     Á: "A",
+  //     À: "A",
+  //     Ả: "A",
+  //     Ã: "A",
+  //     Ạ: "A",
+  //     Ă: "A",
+  //     Ắ: "A",
+  //     Ằ: "A",
+  //     Ẳ: "A",
+  //     Ẵ: "A",
+  //     Ặ: "A",
+  //     Â: "A",
+  //     Ấ: "A",
+  //     Ầ: "A",
+  //     Ẩ: "A",
+  //     Ẫ: "A",
+  //     Ậ: "A",
+  //     É: "E",
+  //     È: "E",
+  //     Ẻ: "E",
+  //     Ẽ: "E",
+  //     Ẹ: "E",
+  //     Ê: "E",
+  //     Ế: "E",
+  //     Ề: "E",
+  //     Ể: "E",
+  //     Ễ: "E",
+  //     Ệ: "E",
+  //     Í: "I",
+  //     Ì: "I",
+  //     Ỉ: "I",
+  //     Ĩ: "I",
+  //     Ị: "I",
+  //     Ó: "O",
+  //     Ò: "O",
+  //     Ỏ: "O",
+  //     Õ: "O",
+  //     Ọ: "O",
+  //     Ô: "O",
+  //     Ố: "O",
+  //     Ồ: "O",
+  //     Ổ: "O",
+  //     Ỗ: "O",
+  //     Ộ: "O",
+  //     Ơ: "O",
+  //     Ớ: "O",
+  //     Ờ: "O",
+  //     Ở: "O",
+  //     Ỡ: "O",
+  //     Ợ: "O",
+  //     Ú: "U",
+  //     Ù: "U",
+  //     Ủ: "U",
+  //     Ũ: "U",
+  //     Ụ: "U",
+  //     Ư: "U",
+  //     Ứ: "U",
+  //     Ừ: "U",
+  //     Ử: "U",
+  //     Ữ: "U",
+  //     Ự: "U",
+  //     Ý: "Y",
+  //     Ỳ: "Y",
+  //     Ỷ: "Y",
+  //     Ỹ: "Y",
+  //     Ỵ: "Y",
+  //     Đ: "D",
+  //   };
 
-    return str.replace(/[^\u0000-\u007E]/g, function (a) {
-      return diacriticsMap[a] || a;
-    });
-  }
-  const renderTags = () => {
-    const input = "Chữ có dấu tiếng Việt như ngưu";
-const output = removeDiacritics(input);
-console.log(output); // Ket qua: "Chu co dau tieng Viet"
-    let tagRender = "";
-    const converProductName = removeDiacritics(productName);
-    console.log(converProductName);
-    const variables = [converProductName, manufacturer];
-    variables.forEach(function (variable) {
-      // Kiểm tra biến có giá trị không rỗng
-      if (variable.trim() !== "") {
-        // Xóa tất cả các kí tự đặc biệt
-        var cleanedString = variable.replace(/[^\w\s]/g, "");
+  //   return str.replace(/[^\u0000-\u007E]/g, function (a) {
+  //     return diacriticsMap[a] || a;
+  //   });
+  // }
+  // const renderTags = () => {
+  //   let tagRender = "";
+  //   const converProductName = removeDiacritics(productName);
+  //   console.log(converProductName);
+  //   const variables = [converProductName, manufacturer];
+  //   variables.forEach(function (variable) {
+  //     // Kiểm tra biến có giá trị không rỗng
+  //     if (variable.trim() !== "") {
+  //       // Xóa tất cả các kí tự đặc biệt
+  //       var cleanedString = variable.replace(/[^\w\s]/g, "");
 
-        // Tách từ trong chuỗi đã làm sạch
-        var words = cleanedString
-          .split(" ")
-          .filter((variable) => variable.trim() !== "");
-        // Tạo tag cho từng từ
-        var tags = words.map(function (word) {
-          // Loại bỏ khoảng trắng thừa trước và sau từ
-          var trimmedWord = word.trim();
-          return "#" + trimmedWord;
-        });
+  //       // Tách từ trong chuỗi đã làm sạch
+  //       var words = cleanedString
+  //         .split(" ")
+  //         .filter((variable) => variable.trim() !== "");
+  //       // Tạo tag cho từng từ
+  //       var tags = words.map(function (word) {
+  //         // Loại bỏ khoảng trắng thừa trước và sau từ
+  //         var trimmedWord = word.trim();
+  //         return "#" + trimmedWord;
+  //       });
 
-        // In các tag
-        tagRender += " " + tags.join(" ");
-      }
-    });
-    return tagRender;
-  };
+  //       // In các tag
+  //       tagRender += " " + tags.join(" ");
+  //     }
+  //   });
+  //   return tagRender;
+  // };
 
   const checkTypeAndRenderName = (productName, type) => {
     if (type) return convertTextToBold(productName) + " (" + type + ")" + "\n";
@@ -372,24 +365,7 @@ console.log(output); // Ket qua: "Chu co dau tieng Viet"
       });
     });
 
-    renderedPost += tags;
-
-    switch (type) {
-      case "Cast off":
-        renderedPost += resinTag + " #castOff";
-        break;
-      case "Model kit":
-        renderedPost += kitTag;
-        break;
-      case "Metal build":
-        renderedPost += metalBuildTag;
-        break;
-
-      default:
-        renderedPost += resinTag;
-        break;
-    }
-    renderedPost += renderTags();
+    renderedPost += tagsFinal;
     return renderedPost;
   };
   const renderPostV2 = () => {
@@ -403,24 +379,7 @@ console.log(output); // Ket qua: "Chu co dau tieng Viet"
       });
     });
 
-    renderedPost += tags;
-
-    switch (type) {
-      case "Cast off":
-        renderedPost += resinTag + " #castOff";
-        break;
-      case "Model kit":
-        renderedPost += kitTag;
-        break;
-      case "Metal build":
-        renderedPost += metalBuildTag;
-        break;
-
-      default:
-        renderedPost += resinTag;
-        break;
-    }
-    renderedPost += renderTags();
+    renderedPost += tagsFinal;
     return renderedPost;
   };
 
