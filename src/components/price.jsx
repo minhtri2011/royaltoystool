@@ -12,7 +12,7 @@ import InputWithFloatingLabel from "./inputWithFloatingLabel";
 const Price = () => {
   const [price, setPrice] = useState(0);
   const [ship, setShip] = useState(0);
-  const [currencyExchange, setCurrencyExchange] = useState(3.55);
+  const [currencyExchange, setCurrencyExchange] = useState(3.5);
   const [profit, setProfit] = useState(1.1);
   const priceRef = useRef(null);
   const [active, setActive] = useState(false);
