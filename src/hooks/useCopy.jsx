@@ -31,7 +31,7 @@ const useCopy = () => {
     preOrder,
   } = postData;
 
- 
+
   const checkTypeAndRenderName = (productName, type) => {
     if (type) return convertTextToBold(productName) + " (" + type + ")" + "\n";
     return convertTextToBold(productName + "\n");
@@ -41,11 +41,13 @@ const useCopy = () => {
     if (!value) return "";
     return `${downLine ? "" : "\n"}${convertTextToBold(title)}: ${value}`;
   };
+  const checkAndRenderNoBold = (value, title, downLine) => {
+    if (!value) return "";
+    return `${downLine ? "" : "\n"}${title}: ${value}`;
+  };
   const checkAndRenderLink = (value, title, downLine) => {
     if (!value) return "";
-    return `${downLine ? "" : "\n"}${convertTextToBold(
-      title
-    )}: <a href="${value}">${value}</a>`;
+    return `${downLine ? "" : "\n"}${title}: <a href="${value}">Link</a>`;
   };
   const checkAndRenderLimitNumber = (value, title, downLine) => {
     if (!value) return "";
@@ -192,7 +194,7 @@ const useCopy = () => {
     checkAndRenderNoBold(accessories, "Phụ kiện"),
     checkAndRenderNoBold(releaseDate, "Phát hành"),
     checkAndRenderNoBold(note, "Ghi chú"),
-    checkAndRenderNoBold(link, "Link Uncensored"),
+    checkAndRenderLink(link, "Link Uncensored"),
   ];
 
   const resinDetails = [
@@ -370,7 +372,7 @@ const useCopy = () => {
       return;
     }
   };
-  
+
   const copyFaceBook = () => {
     navigator.clipboard.writeText(renderPost());
     toast.success("Copy facebook", {
