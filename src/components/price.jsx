@@ -12,7 +12,7 @@ import InputWithFloatingLabel from "./inputWithFloatingLabel";
 const Price = () => {
   const [price, setPrice] = useState(0);
   const [ship, setShip] = useState(0);
-  const [currencyExchange, setCurrencyExchange] = useState(3.55);
+  const [currencyExchange, setCurrencyExchange] = useState(3.5);
   const [profit, setProfit] = useState(1.1);
   const priceRef = useRef(null);
   const [active, setActive] = useState(false);
@@ -81,6 +81,17 @@ const Price = () => {
 
     return (money * profit + ship).toLocaleString();
   };
+  const totalProfit = () => {
+    if (price === 0) return 0;
+    const money = price * currencyExchange * 1000;
+    if (money < 1000001) return (200000 ).toLocaleString();
+    if (money > 1000000 && money < 2000001)
+      return (300000).toLocaleString();
+    if (money > 2000000 && money < 3000001)
+      return (400000).toLocaleString();
+
+    return (money * (profit - 1)).toLocaleString();
+  };
 
   return (
     <Box
@@ -110,12 +121,13 @@ const Price = () => {
         value={ship}
         onChange={(e) => setShip(Number(e.target.value))}
       >
-        <option className="text-black" value={0}> Không tính phí ship</option>
         <option className="text-black" value={200000}> 200.000</option>
         <option className="text-black" value={300000}> 300.000</option>
+        <option className="text-black" value={200000}> 400.000</option>
         <option className="text-black" value={500000}> 500.000</option>
         <option className="text-black" value={600000}> 600.000</option>
         <option className="text-black" value={1000000}> 1.000.000</option>
+        <option className="text-black" value={1200000}> 1.200.000</option>
       </Select>
       <InputWithFloatingLabel
         type="number"
@@ -156,9 +168,21 @@ const Price = () => {
         </Text>
       </Text>
       <Tooltip label="Click to copy">
+        <div className="flex flex-col ">
         <Text
           fontWeight={"bold"}
-          className="cursor-pointer self-center"
+          className="cursor-pointer "
+          onClick={handleCopyMoney}
+          as={"span"}
+        >
+          Tiền lời:{" "}
+          <Text as={"span"} fontWeight={"normal"}>
+            {totalProfit()} VND
+          </Text>
+        </Text>
+        <Text
+          fontWeight={"bold"}
+          className="cursor-pointer"
           onClick={handleCopyMoney}
           as={"span"}
         >
@@ -167,6 +191,7 @@ const Price = () => {
             {totalPrice()} VND
           </Text>
         </Text>
+       </div>
       </Tooltip>
       {/* </Box> */}
     </Box>
