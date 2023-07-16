@@ -211,6 +211,12 @@ const useCopy = () => {
     if (!value) return "";
     return `${downLine ? "" : "\n"}${convertTextToBold(title)}: ${value}`;
   };
+  const checkAndRenderLink = (value, title, downLine) => {
+    if (!value) return "";
+    return `${downLine ? "" : "\n"}${convertTextToBold(
+      title
+    )}: <a href="${value}">${value}</a>`;
+  };
   const checkAndRenderLimitNumber = (value, title, downLine) => {
     if (!value) return "";
     return `${downLine ? "" : "\n"}${convertTextToBold(title)}: ${value} bản`;
@@ -292,7 +298,7 @@ const useCopy = () => {
     checkAndRender(accessories, "Phụ kiện"),
     checkAndRender(releaseDate, "Phát hành"),
     checkAndRender(note, "Ghi chú"),
-    checkAndRender(link, "Link Uncensored"),
+    checkAndRenderLink(link, "Link Uncensored"),
   ];
 
   const resinDetails = [
@@ -395,6 +401,7 @@ const useCopy = () => {
     });
     return renderedPost;
   };
+
   const renderPostWeb = () => {
     let renderedPost = "";
     webNoPrice.forEach((product) => {

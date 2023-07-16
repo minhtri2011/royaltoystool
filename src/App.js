@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/home";
 import { Toaster } from "react-hot-toast";
 import TagsPage from "./pages/tagsPage";
+import Giveaway from "./pages/giveaway";
 
 const routers = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const routers = createBrowserRouter([
   {
     path: "/tags",
     element: <TagsPage />,
+  },
+  {
+    path: "/giveaway",
+    element: <Giveaway/>,
   },
 ]);
 function App() {

@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 import useCopy from "../hooks/useCopy";
 
 const ListButton = () => {
@@ -40,19 +41,6 @@ const ListButton = () => {
   return (
     <>
       <div className=" flex gap-3 flex-wrap w-full">
-        <Button colorScheme="facebook" onClick={copyFaceBook}>
-          Facebook
-        </Button>
-        <Button colorScheme="facebook" onClick={copyFaceBookV2}>
-          Facebook v2
-        </Button>
-
-        <Button colorScheme="teal" variant={"outline"} onClick={copyTagsBasic}>
-          Tags
-        </Button>
-        <Button colorScheme="red" variant={"outline"} onClick={handleOpenLinks}>
-          Links cast off
-        </Button>
         <Button
           colorScheme="purple"
           variant={"outline"}
@@ -60,12 +48,28 @@ const ListButton = () => {
         >
           Resin / Tên - Hãng
         </Button>
+        <Button colorScheme="red" variant={"outline"} onClick={handleOpenLinks}>
+          Links cast off
+        </Button>
+        <Button colorScheme="teal" variant={"outline"} onClick={copyTagsBasic}>
+          Tags
+        </Button>
+        <Link to="/giveaway">
+          <Button colorScheme="pink" variant={"outline"}>
+            Give away
+          </Button>
+        </Link>
+      </div>
+      <div className=" flex gap-3 flex-wrap w-full mt-2 border-t-2 pt-2">
+        <Button colorScheme="facebook" onClick={copyFaceBook}>
+          Facebook
+        </Button>
+        <Button colorScheme="facebook" onClick={copyFaceBookV2}>
+          Facebook v2
+        </Button>
       </div>
 
       <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2">
-        <Button colorScheme="pink" variant={"solid"} onClick={copyName}>
-          Tên
-        </Button>
         <Button
           colorScheme="whatsapp"
           variant={"solid"}
@@ -78,6 +82,9 @@ const ListButton = () => {
         </Button>
         <Button colorScheme="orange" variant={"solid"} onClick={copyPrice}>
           Giá
+        </Button>
+        <Button colorScheme="pink" variant={"solid"} onClick={copyName}>
+          Tên
         </Button>
       </div>
     </>
