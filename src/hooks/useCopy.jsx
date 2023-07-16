@@ -231,7 +231,7 @@ const useCopy = () => {
   const webNoPrice = [
     productName + "\n",
     checkAndRenderNoBold(manufacturer, "HSX"),
-    renderSize(ratio, height, width, depth),
+    renderSizeNoBold(ratio, height, width, depth),
     checkAndRenderLimitNumber(limit, "Giới hạn"),
     checkAndRenderNoBold(material, "Chất liệu"),
     checkAndRenderNoBold(accessories, "Phụ kiện"),
