@@ -123,7 +123,7 @@ const Price = () => {
       >
         <option className="text-black" value={200000}> 200.000</option>
         <option className="text-black" value={300000}> 300.000</option>
-        <option className="text-black" value={200000}> 400.000</option>
+        <option className="text-black" value={400000}> 400.000</option>
         <option className="text-black" value={500000}> 500.000</option>
         <option className="text-black" value={600000}> 600.000</option>
         <option className="text-black" value={1000000}> 1.000.000</option>
