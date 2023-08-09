@@ -14,7 +14,7 @@ Hỗ trợ thanh toán trả góp qua ví momo trả sau
 -RoyalToys-Figure: https://www.tiktok.com/@royaltoysfigure
 -Relax: https://www.tiktok.com/@tringuyendev
 
-🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ: 1162/2/13 Đường Trường Sa, phường 13, Phú Nhuận, Thành phố Hồ Chí Minh
+🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ: 47 đường số 9, phường 16, Gò Vấp, Thành phố Hồ Chí Minh
 
 #RoyalToys #MoHinh #Decor #DoChoi #royal #toys `;
 
