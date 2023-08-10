@@ -56,6 +56,7 @@ const useRenderTags = () => {
   finalTags += tags;
   finalTags += configTags;
   finalTags += renderTags();
+  finalTags += ' '+ productName;
   return finalTags;
 };
 

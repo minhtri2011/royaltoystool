@@ -2,7 +2,13 @@ import { useSelector } from "react-redux";
 import { getPostData } from "../redux/slices/postSlice";
 
 import { toast } from "react-hot-toast";
-import { kitTag, metalBuildTag, resinTag, tags } from "../config/tagBasic";
+import {
+  basicTag,
+  kitTag,
+  metalBuildTag,
+  resinTag,
+  tags,
+} from "../config/tagBasic";
 import convertTextToBold from "../feature/convertTextToBold";
 import useRenderTags from "./useRenderTags";
 
@@ -30,7 +36,6 @@ const useCopy = () => {
     link,
     preOrder,
   } = postData;
-
 
   const checkTypeAndRenderName = (productName, type) => {
     if (type) return convertTextToBold(productName) + " (" + type + ")" + "\n";
@@ -266,8 +271,8 @@ const useCopy = () => {
         renderedPost += product;
       });
     });
-
     renderedPost += tagsFinal;
+    console.log(renderedPost)
     return renderedPost;
   };
   const renderPostV2 = () => {
@@ -280,7 +285,6 @@ const useCopy = () => {
         renderedPost += product;
       });
     });
-
     renderedPost += tagsFinal;
     return renderedPost;
   };
