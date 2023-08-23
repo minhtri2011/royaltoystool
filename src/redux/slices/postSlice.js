@@ -31,7 +31,7 @@ const postSlice = createSlice({
   initialState,
   reducers: {
     resetForm: (state) => {
-      state.preOrder = "";
+      state.preOrder = "[Pre order] ";
       state.link = "";
       state.productName = "";
       state.manufacturer = "";
