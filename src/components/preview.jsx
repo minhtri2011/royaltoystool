@@ -108,8 +108,8 @@ const Preview = () => {
       <Box ml="3">
         <Text fontSize="sm" className="pt-1 pb-3 font-bold">
           {preOrder}
-          {productName}
           <Text fontSize="sm" className="pt-1 pb-3 font-normal" as={"span"}>
+            {productName}
             {type && " (" + type + ")"}
           </Text>
         </Text>

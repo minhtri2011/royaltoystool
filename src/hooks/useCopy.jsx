@@ -38,8 +38,8 @@ const useCopy = () => {
   } = postData;
 
   const checkTypeAndRenderName = (productName, type) => {
-    if (type) return convertTextToBold(productName) + " (" + type + ")" + "\n";
-    return convertTextToBold(productName + "\n");
+    if (type) return (productName) + " (" + type + ")" + "\n";
+    return (productName + "\n");
   };
 
   const checkAndRender = (value, title, downLine) => {

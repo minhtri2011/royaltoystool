@@ -225,7 +225,6 @@ const Form = () => {
             className="cursor-pointer !w-full"
             onChange={handleChangePreOrder}
             value={preOrder}
-            placeholder="Trạng thái"
           >
             <option value="[Pre order] ">Pre-order</option>
             <option value="[Hàng sẵn] ">Hàng sẵn</option>

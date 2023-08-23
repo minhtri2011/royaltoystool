@@ -1,6 +1,8 @@
 const tags = `
 
 -------------------------------------------------
+Cung cấp sỉ lẻ mô hình
+-------------------------------------------------
 Hỗ trợ vận chuyển trong và ngoài nước
 -------------------------------------------------
 Hỗ trợ thanh toán trả góp qua thẻ tín dụng
@@ -18,11 +20,11 @@ Hỗ trợ thanh toán trả góp qua ví momo trả sau
 
 `;
 
-const basicTag='#RoyalToys #MoHinh #Decor #DoChoi #royal #toys '
+const basicTag='#RoyalToys #MoHinh #Decor #DoChoi #Royal #Toys '
 const resinTag =basicTag + `#resin #figure #resinArt #anime`;
 const figureTag =basicTag + `#figure #anime`;
 const kitTag =basicTag + `#kit #modelKit`;
-const metalBuildTag =basicTag + `#metalBuild`;
+const metalBuildTag =basicTag + `#metalBuild actionFigure`;
 
 export { basicTag,tags, resinTag, figureTag, kitTag, metalBuildTag };
 
