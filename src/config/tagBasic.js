@@ -9,7 +9,6 @@ Hỗ trợ thanh toán trả góp qua ví momo trả sau
 
 🛒 Shopee: https://shopee.vn/royaltoys999
 🌐 Website: https://royaltoys.com.vn
--------------------------------------------------
 📹 Youtube: https://www.youtube.com/@royaltoys9765
 🌐 Tiktok: 
 -Relax: https://www.tiktok.com/@tringuyendev
