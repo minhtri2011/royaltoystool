@@ -9,8 +9,12 @@ Hỗ trợ thanh toán trả góp qua ví momo trả sau
 
 🛒 Shopee: https://shopee.vn/royaltoys999
 🌐 Website: https://royaltoys.com.vn
-📹 Youtube: https://www.youtube.com/@royaltoys9765
-🌐 Tiktok: 
+
+📷 Instagram: https://www.instagram.com/royaltoyscollectible
+📷 Instagram Figure: https://www.instagram.com/royaltoysfigure
+
+▶️ Youtube: https://www.youtube.com/@royaltoys9765
+🎮 Tiktok: 
 -Relax: https://www.tiktok.com/@tringuyendev
 -RoyalToys: https://www.tiktok.com/@royaltoys_999
 -RoyalToys-Figure: https://www.tiktok.com/@royaltoysfigure
