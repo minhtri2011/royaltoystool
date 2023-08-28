@@ -22,6 +22,6 @@ const basicTag = "#RoyalToys #MoHinh #Decor #DoChoi #Royal #Toys ";
 const resinTag = basicTag + `#resin #figure #resinArt #anime`;
 const figureTag = basicTag + `#figure #anime`;
 const kitTag = basicTag + `#kit #modelKit`;
-const metalBuildTag = basicTag + `#metalBuild actionFigure`;
+const metalBuildTag = basicTag + `#metalBuild #actionFigure`;
 
 export { basicTag, tags, resinTag, figureTag, kitTag, metalBuildTag };
