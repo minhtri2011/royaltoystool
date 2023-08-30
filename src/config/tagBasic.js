@@ -6,6 +6,9 @@ Hỗ trợ vận chuyển trong và ngoài nước
 Hỗ trợ thanh toán trả góp qua thẻ tín dụng
 Hỗ trợ thanh toán trả góp qua ví momo trả sau
 -------------------------------------------------
+Cộng đồng Anti Scam Gundam VN: https://www.facebook.com/groups/311652321168639
+Chợ trời Gundam VN: https://www.facebook.com/groups/606837867234057
+-------------------------------------------------
 
 🛒 Shopee: https://shopee.vn/royaltoys999
 🌐 Website: https://royaltoys.com.vn
