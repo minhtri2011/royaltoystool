@@ -272,7 +272,6 @@ const useCopy = () => {
       });
     });
     renderedPost += tagsFinal;
-    console.log(renderedPost)
     return renderedPost;
   };
   const renderPostV2 = () => {

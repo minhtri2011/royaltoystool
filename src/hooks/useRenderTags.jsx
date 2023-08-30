@@ -2,11 +2,17 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getPostData } from "../redux/slices/postSlice";
 import removeDiacritics from "../feature/removeDiacritics";
-import { kitTag, metalBuildTag, resinTag, tags } from "../config/tagBasic";
+import {
+  kitTag,
+  metalBuildTag,
+  resinTag,
+  tags,
+  tagsFigureFB,
+} from "../config/tagBasic";
 
 const useRenderTags = () => {
   const postData = useSelector(getPostData);
-  const { productName, manufacturer ,type} = postData;
+  const { productName, manufacturer, type } = postData;
   let finalTags = "";
   let configTags = "";
 
@@ -37,24 +43,31 @@ const useRenderTags = () => {
     });
     return tagRender;
   };
-  
+
   switch (type) {
-    case "Cast off":
-      configTags += resinTag + " #castOff";
-      break;
     case "Model kit":
       configTags += kitTag;
+      finalTags += tags;
+      finalTags += configTags;
       break;
     case "Metal build":
       configTags += metalBuildTag;
+      finalTags += tags;
+      finalTags += configTags;
       break;
-
+    case "Cast off":
+      configTags += resinTag + " #castOff";
+      finalTags += tagsFigureFB;
+      finalTags += configTags;
+      break;
     default:
       configTags += resinTag;
+      finalTags += tagsFigureFB;
+      finalTags += configTags;
       break;
   }
-  finalTags += tags;
-  finalTags += configTags;
+  // finalTags += tags;
+  // finalTags += configTags;
   finalTags += renderTags();
   return finalTags;
 };
