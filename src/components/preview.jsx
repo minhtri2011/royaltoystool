@@ -48,7 +48,7 @@ const Preview = () => {
   const renderAllVersionsPost = () => {
     return versions.map((version) => {
       return (
-        <div key={version.id} className="mt-2">
+        <div key={version.id} className="mt-2 ">
           <Text>- {version.versionName} -</Text>
           <Text fontSize="sm">
             <Text as={"span"} fontWeight={"bold"}>

@@ -185,8 +185,8 @@ const Form = () => {
           </div>
           <Button
             leftIcon={<DeleteIcon />}
-            className="mt-2 w-full"
-            colorScheme="red"
+            className="mt-2 w-full "
+            colorScheme="purple"
             variant="solid"
             onClick={() => handleDeleteVersion(version.id)}
           >
@@ -397,7 +397,7 @@ const Form = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         <Button
           leftIcon={<DeleteIcon />}
-          colorScheme="pink"
+          colorScheme="red"
           variant="solid"
           onClick={handleResetForm}
         >
@@ -405,7 +405,7 @@ const Form = () => {
         </Button>
         <Button
           leftIcon={<AddIcon />}
-          colorScheme="blue"
+          colorScheme="yellow"
           variant="solid"
           onClick={handleAddNewVersion}
         >
