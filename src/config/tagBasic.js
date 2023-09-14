@@ -1,4 +1,4 @@
-const address ='🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ: 47 đường số 9, phường 16, Gò Vấp, Thành phố Hồ Chí Minh'
+const address =`🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ: D'Lusso Quận 2, An Phú, Quận 2, Thành phố Hồ Chí Minh`
 
 const tiktok=`🎮 Tiktok: 
 -Relax: https://www.tiktok.com/@tringuyendev
