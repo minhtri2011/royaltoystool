@@ -20,7 +20,7 @@ const basicUrl=` 𝐖𝐞𝐛𝐬𝐢𝐭𝐞: https://royaltoys.com.vn
 const tags = `
 ${basicContent}
 Cộng đồng Anti Scam Gundam VN: https://www.facebook.com/groups/311652321168639
-Chợ trời Gundam VN: https://www.facebook.com/groups/606837867234057
+Chợ đen Gundam VN: https://www.facebook.com/groups/606837867234057
 -------------------------------------------------
 
 ${basicUrl}
