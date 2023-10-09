@@ -12,10 +12,9 @@ Hỗ trợ thanh toán trả góp qua thẻ tín dụng
 Hỗ trợ thanh toán trả góp qua ví momo trả sau
 -------------------------------------------------`
 
-const basicUrl=` 𝐖𝐞𝐛𝐬𝐢𝐭𝐞: https://royaltoys.com.vn
+const basicUrl=`𝐖𝐞𝐛𝐬𝐢𝐭𝐞: https://royaltoys.com.vn
 𝐒𝐡𝐨𝐩𝐞𝐞: https://shopee.vn/royaltoys999
 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: https://www.youtube.com/@royaltoys9765`
-
 
 const tags = `
 ${basicContent}
