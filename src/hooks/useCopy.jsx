@@ -116,7 +116,7 @@ const useCopy = () => {
   };
 
   const renderFPrice = (price, deposit, bankFull) => {
-    if (!price) return "";
+    if (!price ) return "";
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻 𝐝𝐮̛̣ 𝐤𝐢𝐞̂́𝐧: `;
     if (price) {
@@ -134,7 +134,7 @@ const useCopy = () => {
     return priceString;
   };
   const renderFPriceNoBold = (price, deposit, bankFull) => {
-    if (!price) return "";
+    if (!price || !bankFull) return "";
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\nGiá bán dự kiến: `;
     if (price) {
@@ -152,9 +152,10 @@ const useCopy = () => {
     return priceString;
   };
   const renderPrice = (price, deposit, bankFull) => {
-    if (!price) return "";
+    if (!price || !bankFull) return "";
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻: `;
+
     if (price) {
       priceString += `${(+price).toLocaleString("vi-VN")} VNĐ`;
     }
@@ -170,7 +171,7 @@ const useCopy = () => {
     return priceString;
   };
   const renderPriceNoBold = (price, deposit, bankFull) => {
-    if (!price) return "";
+    if (!price || !bankFull) return "";
     if (!price && !deposit && !bankFull) return "";
     let priceString = `\nGiá bán: `;
     if (price) {
@@ -303,7 +304,10 @@ const useCopy = () => {
 
   const renderPostWeb = () => {
     let renderedPost = "";
-    webNoPrice.forEach((product) => {
+    // webNoPrice.forEach((product) => {
+    //   renderedPost += product;
+    // });
+    resinWebDetails.forEach((product) => {
       renderedPost += product;
     });
     versionDetails().forEach((version) => {

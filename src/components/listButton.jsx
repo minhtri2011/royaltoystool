@@ -57,16 +57,16 @@ const ListButton = () => {
           </Button>
         </Link>
       </div>
-      <div className=" flex gap-3 flex-wrap w-full mt-2 border-t-2 pt-2">
+      {/* <div className=" flex gap-3 flex-wrap w-full mt-2 border-t-2 pt-2">
         <Button colorScheme="facebook" onClick={copyFaceBook}>
           Facebook
         </Button>
-        <Button colorScheme="facebook" onClick={copyFaceBookV2}>
-          Facebook v2
-        </Button>
-      </div>
+      </div> */}
 
       <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2">
+        <Button colorScheme="facebook" onClick={copyFaceBookV2}>
+          Facebook
+        </Button>
         <Button
           colorScheme="whatsapp"
           variant={"solid"}
