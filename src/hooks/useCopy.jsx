@@ -151,13 +151,17 @@ const useCopy = () => {
 
     return priceString;
   };
-  const renderPrice = (price, deposit, bankFull) => {
-    if (!price || !bankFull) return "";
+  const renderPrice = (price, deposit, bankFull,fprice) => {
+    // if (!price || !bankFull) return "";
     if (!price && !deposit && !bankFull) return "";
-    let priceString = `\n𝗚𝗶𝗮́ 𝗯𝗮́𝗻: `;
+    let priceString = `\n`;
 
     if (price) {
-      priceString += `${(+price).toLocaleString("vi-VN")} VNĐ`;
+      priceString += `𝗚𝗶𝗮́ 𝗯𝗮́𝗻: ${(+price).toLocaleString("vi-VN")} VNĐ`;
+    }
+
+    if (fprice) {
+      priceString += `𝗚𝗶𝗮́ 𝗯𝗮́𝗻 𝐝𝐮̛̣ 𝐤𝐢𝐞̂́𝐧: ${(+fprice).toLocaleString("vi-VN")} VNĐ`;
     }
 
     if (deposit) {
@@ -170,12 +174,15 @@ const useCopy = () => {
 
     return priceString;
   };
-  const renderPriceNoBold = (price, deposit, bankFull) => {
-    if (!price || !bankFull) return "";
+  const renderPriceNoBold = (price, deposit, bankFull,fprice) => {
     if (!price && !deposit && !bankFull) return "";
-    let priceString = `\nGiá bán: `;
+    let priceString = `\n`;
     if (price) {
-      priceString += `${(+price).toLocaleString("vi-VN")} VNĐ`;
+      priceString += `Giá bán: ${(+price).toLocaleString("vi-VN")} VNĐ`;
+    }
+
+    if (fprice) {
+      priceString += `Giá bán dự kiến: ${(+fprice).toLocaleString("vi-VN")} VNĐ`;
     }
 
     if (deposit) {
@@ -193,8 +200,8 @@ const useCopy = () => {
     productName + "\n",
     checkAndRenderNoBold(manufacturer, "HSX"),
     renderSizeNoBold(ratio, height, width, depth),
-    renderPriceNoBold(price, deposit, bankFull),
-    renderFPriceNoBold(fprice, deposit, bankFull),
+    renderPriceNoBold(price, deposit, bankFull,fprice),
+    // renderFPriceNoBold(fprice, deposit, bankFull),
     checkAndRenderLimitNumberNoBold(limit, "Giới hạn"),
     checkAndRenderNoBold(material, "Chất liệu"),
     checkAndRenderNoBold(accessories, "Phụ kiện"),
@@ -209,7 +216,7 @@ const useCopy = () => {
     checkAndRender(manufacturer, "HSX"),
     renderSize(ratio, height, width, depth),
     renderPrice(price, deposit, bankFull),
-    renderFPrice(fprice, deposit, bankFull),
+    // renderFPrice(fprice, deposit, bankFull),
     checkAndRenderLimitNumber(limit, "Giới hạn"),
     checkAndRender(material, "Chất liệu"),
     checkAndRender(accessories, "Phụ kiện"),
@@ -230,8 +237,8 @@ const useCopy = () => {
     checkAndRender(note, "Ghi chú"),
     checkAndRender(link, "Link Uncensored"),
     "\n",
-    renderPrice(price, deposit, bankFull),
-    renderFPrice(fprice, deposit, bankFull),
+    renderPrice(price, deposit, bankFull, fprice),
+    // renderFPrice(fprice, deposit, bankFull),
   ];
 
   const webNoPrice = [
