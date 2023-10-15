@@ -1,6 +1,6 @@
 const address =`🏴󠁶󠁵󠁭󠁡󠁰󠁿 Địa chỉ: D'Lusso Quận 2, An Phú, Quận 2, Thành phố Hồ Chí Minh`
 
-const tiktok=`𝐓𝐢𝐤𝐭𝐨𝐤: 
+const tiktok=`🎮 𝐓𝐢𝐤𝐭𝐨𝐤: 
 -Relax: https://www.tiktok.com/@tringuyendev
 -RoyalToys: https://www.tiktok.com/@royaltoys_999`
 
@@ -12,9 +12,9 @@ Hỗ trợ thanh toán trả góp qua thẻ tín dụng
 Hỗ trợ thanh toán trả góp qua ví momo trả sau
 -------------------------------------------------`
 
-const basicUrl=`𝐖𝐞𝐛𝐬𝐢𝐭𝐞: https://royaltoys.com.vn
-𝐒𝐡𝐨𝐩𝐞𝐞: https://shopee.vn/royaltoys999
-𝐘𝐨𝐮𝐭𝐮𝐛𝐞: https://www.youtube.com/@royaltoys9765`
+const basicUrl=`🛒 𝐒𝐡𝐨𝐩𝐞𝐞: https://shopee.vn/royaltoys999
+🌐 𝐖𝐞𝐛𝐬𝐢𝐭𝐞: https://royaltoys.com.vn
+▶️ 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: https://www.youtube.com/@royaltoys9765`
 
 const tags = `
 ${basicContent}

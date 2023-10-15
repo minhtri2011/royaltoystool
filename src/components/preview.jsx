@@ -126,8 +126,16 @@ const Preview = () => {
             {depth && " x "} {depth} {height && " cm"}{" "}
           </Text>
         </Text>
+
+        {renderInfo(limit, "Giới hạn", Number(limit).toLocaleString() + " bản")}
+        {renderInfo(material, "Chất liệu")}
+        {renderInfo(accessories, "Phụ kiện")}
+        {renderInfo(releaseDate, "Phát hành")}
+        {renderInfo(note, "Ghi chú")}
+        {renderInfo(link, "Link Uncensored")}
+
         {(fprice || price || deposit) && (
-          <Text as="span" className="inline-flex">
+          <Text as="span" className="inline-flex mt-3">
             {renderInfo(
               fprice,
               "Giá bán dự kiến",
@@ -146,19 +154,11 @@ const Preview = () => {
             )}
           </Text>
         )}
-
-        {renderInfo(
-          bankFull,
-          "Bank full",
-          Number(bankFull).toLocaleString() + " VNĐ"
-        )}
-        {renderInfo(limit, "Giới hạn", Number(limit).toLocaleString() + " bản")}
-        {renderInfo(material, "Chất liệu")}
-        {renderInfo(accessories, "Phụ kiện")}
-        {renderInfo(releaseDate, "Phát hành")}
-        {renderInfo(note, "Ghi chú")}
-        {renderInfo(link, "Link Uncensored")}
-
+          {renderInfo(
+            bankFull,
+            "Bank full",
+            Number(bankFull).toLocaleString() + " VNĐ"
+          )}
         {/* //todo: render all version */}
         {renderAllVersionsPost()}
       </Box>
