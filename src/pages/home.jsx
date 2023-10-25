@@ -3,17 +3,17 @@ import Form from "../components/form";
 import Preview from "../components/preview";
 import ListButton from "../components/listButton";
 import Price from "../components/price";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 ">
-        <div className="p-4 max-h-screen overflow-auto scrollbar-thumb-gray-400 scrollbar-track-gray-200 scrollbar-thin lg:pb-32">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="p-4 md:max-h-screen overflow-auto scrollbar-thumb-gray-400 scrollbar-track-gray-200 scrollbar-thin lg:pb-32">
           <Form />
         </div>
-        <div className="p-4 max-h-screen overflow-auto scrollbar-thumb-gray-400 scrollbar-track-gray-200 scrollbar-thin pb-40 lg:pb-32 ">
+        <div className="p-4 md:max-h-screen overflow-auto scrollbar-thumb-gray-400 scrollbar-track-gray-200 scrollbar-thin pb-40 lg:pb-32 ">
           <div className="py-4">
             <ListButton />
           </div>

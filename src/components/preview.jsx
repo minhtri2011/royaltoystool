@@ -1,7 +1,7 @@
 import { Avatar, Box, Card, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import { getPostData } from "../redux/slices/postSlice";
 import useRenderTags from "../hooks/useRenderTags";
 

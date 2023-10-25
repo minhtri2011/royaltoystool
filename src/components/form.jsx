@@ -226,8 +226,8 @@ const Form = () => {
             onChange={handleChangePreOrder}
             value={preOrder}
           >
-            <option value="[Pre order] ">Pre-order</option>
-            <option value="[Hàng sẵn] ">Hàng sẵn</option>
+            <option className="text-black" value="[Pre order] ">Pre-order</option>
+            <option className="text-black" value="[Hàng sẵn] ">Hàng sẵn</option>
           </Select>
         </div>
         <div style={{ gridArea: "type" }}>
@@ -235,11 +235,11 @@ const Form = () => {
             className="cursor-pointer !w-full"
             onChange={handleChangeType}
             value={type}
-            placeholder="Loại sản phẩm (mặc định resin basic)"
           >
-            <option value="Cast off">Cast off</option>
-            <option value="Model kit">Model kit</option>
-            <option value="Metal build">Metal build</option>
+            <option className="text-black" value="">Resin</option>
+            <option className="text-black" value="Cast off">Cast off</option>
+            <option className="text-black" value="Model kit">Model kit</option>
+            <option className="text-black" value="Metal build">Metal build</option>
           </Select>
         </div>
 

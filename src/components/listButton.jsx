@@ -12,7 +12,6 @@ const ListButton = () => {
     copyResinDownloadToolNameProducer,
     copyPrice,
     copyFaceBook,
-    copyFaceBookV2,
   } = useCopy();
 
   const links = [
@@ -64,7 +63,7 @@ const ListButton = () => {
       </div> */}
 
       <div className="mt-2 flex gap-3 flex-wrap w-full border-t-2 pt-2">
-        <Button colorScheme="facebook" onClick={copyFaceBookV2}>
+        <Button colorScheme="facebook" onClick={copyFaceBook}>
           Facebook
         </Button>
         <Button

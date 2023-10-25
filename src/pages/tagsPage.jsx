@@ -2,7 +2,7 @@ import { Button, Text } from "@chakra-ui/react";
 import React from "react";
 import useCopyTiktok from "../hooks/useCopyTiktok";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 
 const TagsPage = () => {
   const {

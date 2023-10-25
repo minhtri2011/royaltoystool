@@ -1,13 +1,8 @@
-import { ChevronUpIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Select,
-  Text,
-  Tooltip
-} from "@chakra-ui/react";
+import { Box, Select, Text, Tooltip } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import InputWithFloatingLabel from "./inputWithFloatingLabel";
+import { ChevronUpIcon } from "@chakra-ui/icons";
 
 const Price = () => {
   const [price, setPrice] = useState(0);
@@ -84,117 +79,143 @@ const Price = () => {
   const totalProfit = () => {
     if (price === 0) return 0;
     const money = price * currencyExchange * 1000;
-    if (money < 1000001) return (200000 ).toLocaleString();
-    if (money > 1000000 && money < 2000001)
-      return (300000).toLocaleString();
-    if (money > 2000000 && money < 3000001)
-      return (400000).toLocaleString();
+    if (money < 1000001) return (200000).toLocaleString();
+    if (money > 1000000 && money < 2000001) return (300000).toLocaleString();
+    if (money > 2000000 && money < 3000001) return (400000).toLocaleString();
 
     return (money * (profit - 1)).toLocaleString();
   };
 
   return (
-    <Box
-      className={`!fixed right-0 transition-all ease-in-out duration-300 left-0 !bg-rose-950 text-white z-10 p-5 gap-3 grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-6  ${
-        active ? "bottom-0" : "-bottom-full"
-      }`}
-    >
+    <>
       <Tooltip label="Toggle tool bar (Alt + S)">
         <div
           onClick={() => setActive((v) => !v)}
-          className={`absolute scale-75 left-1/2 -translate-x-1/2 !bg-rose-950 rounded-full w-10 h-10 flex justify-center cursor-pointer [&:hover]:scale-125 transition-all ${
-            !active ? " !fixed left-0 -bottom-4" : "-top-4"
-          }`}
+          className={`fixed scale-75 left-1/2 -translate-x-1/2 !bg-[#b98d27] rounded-full w-52 h-7 flex justify-center cursor-pointer [&:hover]:scale-105 transition-all -bottom-3 z-50`}
         >
           <ChevronUpIcon className="text-3xl" />
         </div>
       </Tooltip>
-      <InputWithFloatingLabel
-        type="number"
-        onChange={handleChangePrice}
-        label="Giá (Alt + Q - Alt + E)"
-        ref={priceRef}
-        value={price !== 0 ? price : ""}
-      />
-      <Select
-        className="cursor-pointer "
-        value={ship}
-        onChange={(e) => setShip(Number(e.target.value))}
+      <Box
+        className={`!fixed right-0 transition-all ease-in-out duration-300 left-0 bg-gradient-to-br from-red-500 to-black text-white z-10 p-5 
+      items-center justify-center
+      sm:[&>*]:!w-[calc(100%/2-0.5rem)]
+      md:[&>*]:!w-[calc(100%/3-0.5rem)]
+      lg:[&>*]:!w-[calc(100%/6-0.5rem)]
+      [&>*]:!w-[calc(100%-0.5rem)]
+      gap-2 flex-wrap
+      flex
+      ${active ? "bottom-0" : "-bottom-full"}
+      `}
+        // gap-3 grid-cols-1 sm:grid-cols-3  xl:grid-cols-6 md:grid
       >
-        <option className="text-black" value={200000}> 200.000</option>
-        <option className="text-black" value={300000}> 300.000</option>
-        <option className="text-black" value={400000}> 400.000</option>
-        <option className="text-black" value={500000}> 500.000</option>
-        <option className="text-black" value={600000}> 600.000</option>
-        <option className="text-black" value={1000000}> 1.000.000</option>
-        <option className="text-black" value={1200000}> 1.200.000</option>
-      </Select>
-      <InputWithFloatingLabel
-        type="number"
-        value={currencyExchange ? currencyExchange : 0}
-        onChange={handleChangeCurrency}
-        label="Quy đổi ngoại tệ"
-      />
-      {/* <InputWithFloatingLabel
+        <InputWithFloatingLabel
+          type="number"
+          onChange={handleChangePrice}
+          label="Giá (Alt + Q - Alt + E)"
+          ref={priceRef}
+          value={price !== 0 ? price : ""}
+        />
+        <Select
+          className="cursor-pointer "
+          value={ship}
+          onChange={(e) => setShip(Number(e.target.value))}
+        >
+          <option className="text-black" value={2000000}>
+            2.000.000
+          </option>
+          <option className="text-black" value={1200000}>
+            1.200.000
+          </option>
+          <option className="text-black" value={1000000}>
+            1.000.000
+          </option>
+          <option className="text-black" value={800000}>
+            800.000
+          </option>
+          <option className="text-black" value={600000}>
+            600.000
+          </option>
+          <option className="text-black" value={500000}>
+            500.000
+          </option>
+          <option className="text-black" value={400000}>
+            400.000
+          </option>
+          <option className="text-black" value={300000}>
+            300.000
+          </option>
+          <option className="text-black" value={200000}>
+            200.000
+          </option>
+        </Select>
+        <InputWithFloatingLabel
+          type="number"
+          value={currencyExchange ? currencyExchange : 0}
+          onChange={handleChangeCurrency}
+          label="Quy đổi ngoại tệ"
+        />
+        {/* <InputWithFloatingLabel
         type="number"
         value={profit ? profit : 0}
         onChange={handleChangeProfit}
         label="Tiền lời (mặc định 10%)"
       /> */}
 
-      {/* <Box className="flex items-center gap-2"> */}
-      <Tooltip label="Click to copy">
-        <Text
-          fontWeight={"bold"}
-          className="cursor-pointer self-center"
-          onClick={handleCopyPrice}
-          as={"span"}
-        >
-          Quy đổi:{" "}
-          <Text as={"span"} fontWeight={"normal"}>
-            {price && (price * currencyExchange * 1000).toLocaleString()} VND
+        {/* <Box className="flex items-center gap-2"> */}
+        <Tooltip label="Click to copy">
+          <Text
+            fontWeight={"bold"}
+            className="cursor-pointer self-center"
+            onClick={handleCopyPrice}
+            as={"span"}
+          >
+            Quy đổi:{" "}
+            <Text as={"span"} fontWeight={"normal"}>
+              {price && (price * currencyExchange * 1000).toLocaleString()} VND
+            </Text>
           </Text>
-        </Text>
-      </Tooltip>
+        </Tooltip>
 
-      <Text
-        fontWeight={"bold"}
-        className="cursor-default self-center"
-        as={"span"}
-      >
-        Kèm phí ship:{" "}
-        <Text as={"span"} fontWeight={"normal"}>
-          {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
-        </Text>
-      </Text>
-      <Tooltip label="Click to copy">
-        <div className="flex flex-col ">
         <Text
           fontWeight={"bold"}
-          className="cursor-pointer "
-          onClick={handleCopyMoney}
+          className="cursor-default self-center"
           as={"span"}
         >
-          Tiền lời:{" "}
+          Kèm phí ship:{" "}
           <Text as={"span"} fontWeight={"normal"}>
-            {totalProfit()} VND
+            {(price * currencyExchange * 1000 + ship).toLocaleString()} VND
           </Text>
         </Text>
-        <Text
-          fontWeight={"bold"}
-          className="cursor-pointer"
-          onClick={handleCopyMoney}
-          as={"span"}
-        >
-          Thành tiền:{" "}
-          <Text as={"span"} fontWeight={"normal"}>
-            {totalPrice()} VND
-          </Text>
-        </Text>
-       </div>
-      </Tooltip>
-      {/* </Box> */}
-    </Box>
+        <Tooltip label="Click to copy">
+          <div className="flex flex-col gap-3 sm:gap-0">
+            <Text
+              fontWeight={"bold"}
+              className="cursor-pointer "
+              onClick={handleCopyMoney}
+              as={"span"}
+            >
+              Tiền lời:{" "}
+              <Text as={"span"} fontWeight={"normal"}>
+                {totalProfit()} VND
+              </Text>
+            </Text>
+            <Text
+              fontWeight={"bold"}
+              className="cursor-pointer"
+              onClick={handleCopyMoney}
+              as={"span"}
+            >
+              Thành tiền:{" "}
+              <Text as={"span"} fontWeight={"normal"}>
+                {totalPrice()} VND
+              </Text>
+            </Text>
+          </div>
+        </Tooltip>
+        {/* </Box> */}
+      </Box>
+    </>
   );
 };
 

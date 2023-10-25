@@ -15,6 +15,7 @@ const InputWithFloatingLabel = React.forwardRef((props, ref) => {
         {...props}
         onChange={handleInputChange}
         ref={ref}
+        
       />
       <FormLabel className="!bg-transparent">{label}</FormLabel>
     </FormControl>

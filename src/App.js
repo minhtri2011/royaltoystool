@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import { Toaster } from "react-hot-toast";
 import TagsPage from "./pages/tagsPage";
 import Giveaway from "./pages/giveaway";
+import Snowfall from "./components/Snowfall";
 
 const routers = createBrowserRouter([
   {
@@ -21,10 +22,11 @@ const routers = createBrowserRouter([
 ]);
 function App() {
   return (
-    <>
+    <div className=" min-h-screen ">
+      <Snowfall/>
       <RouterProvider router={routers} />
       <Toaster />
-    </>
+    </div>
   );
 }
 
