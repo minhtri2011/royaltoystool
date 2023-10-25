@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Snowfall.css'; // Import your CSS file for snowflakes
 
 const Snowfall = () => {
-  const [numFlakes] = useState(10);
+  const [numFlakes] = useState(21);
   const [downSpeed] = useState(0.01);
   const [lrFlakes] = useState(10);
 
@@ -43,18 +43,18 @@ const Snowfall = () => {
     setYcoords([...ycoords]);
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(flakeFall, 100);
-    return () => clearInterval(intervalId);
-  }, [flakeFall]);
-
+  // useEffect(() => {
+  //   // Increase the interval time for smoother animation
+  //   const intervalId = setInterval(flakeFall, 500);
+  //   return () => clearInterval(intervalId);
+  // }, [flakeFall]);
 
   return (
-    <div className="snowfall-container !fixed w-screen h-screen top-0 left-0 ">
+    <div className="snowfall-container !fixed w-screen h-screen top-0 left-0 transition ease-linear">
       {xcoords.map((xcoord, index) => (
         <div
           key={index}
-          className="snowflake select-none"
+          className="transition ease-linear snowflake select-none z-[999]"
           style={{
             top: `${(ycoords[index] * 100)}vh`,
             left: `${

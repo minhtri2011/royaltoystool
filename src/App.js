@@ -17,13 +17,13 @@ const routers = createBrowserRouter([
   },
   {
     path: "/giveaway",
-    element: <Giveaway/>,
+    element: <Giveaway />,
   },
 ]);
 function App() {
   return (
     <div className=" min-h-screen ">
-      <Snowfall/>
+      <Snowfall />
       <RouterProvider router={routers} />
       <Toaster />
     </div>
