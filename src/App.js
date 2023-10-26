@@ -23,7 +23,7 @@ const routers = createBrowserRouter([
 function App() {
   return (
     <div className=" min-h-screen ">
-      <Snowfall />
+      {/* <Snowfall /> */}
       <RouterProvider router={routers} />
       <Toaster />
     </div>
