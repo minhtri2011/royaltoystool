@@ -39,6 +39,10 @@ const useCopy = () => {
     if (!value) return "";
     return `${downLine ? "" : "\n"}${convertTextToBold(title)}: ${value}`;
   };
+  const checkAndRenderReleaseDate = (value, title, downLine) => {
+    if (!value) return "";
+    return `${downLine ? "" : "\n"}${convertTextToBold(title)}: ${value} \n*Lưu ý: Thời gian phát hàng có thể delay phụ thuộc vào hãng`;
+  };
   const checkAndRenderLink = (value, title, downLine) => {
     if (!value) return "";
     return `${
@@ -232,7 +236,7 @@ const useCopy = () => {
     checkAndRenderLimitNumberForWeb(limit, "Giới hạn"),
     checkAndRenderForWeb(material, "Chất liệu"),
     checkAndRenderForWeb(accessories, "Phụ kiện"),
-    checkAndRenderForWeb(releaseDate, "Phát hành"),
+    checkAndRenderForWeb(releaseDate, "Phát hành dự kiến"),
     checkAndRenderForWeb(note, "Ghi chú"),
     checkAndRenderLink(link, "Link Uncensored"),
     renderPriceWeb(price, deposit, bankFull, fprice),
@@ -245,7 +249,7 @@ const useCopy = () => {
     checkAndRenderLimitNumber(limit, "Giới hạn"),
     checkAndRender(material, "Chất liệu"),
     checkAndRender(accessories, "Phụ kiện"),
-    checkAndRender(releaseDate, "Phát hành"),
+    checkAndRenderReleaseDate(releaseDate, "Phát hành dự kiến"),
     checkAndRender(note, "Ghi chú"),
     checkAndRender(link, "Link Uncensored"),
     renderPrice(price, deposit, bankFull, fprice),
