@@ -109,13 +109,15 @@ const Price = () => {
       `}
         // gap-3 grid-cols-1 sm:grid-cols-3  xl:grid-cols-6 md:grid
       >
-        <InputWithFloatingLabel
-          type="number"
-          onChange={handleChangePrice}
-          label="Giá (Alt + Q - Alt + E)"
-          ref={priceRef}
-          value={price !== 0 ? price : ""}
-        />
+        <Tooltip label="Alt + Q - Alt + E">
+          <InputWithFloatingLabel
+            type="number"
+            onChange={handleChangePrice}
+            label="Giá"
+            ref={priceRef}
+            value={price !== 0 ? price : ""}
+          />
+        </Tooltip>
         <Select
           className="cursor-pointer "
           value={ship}
