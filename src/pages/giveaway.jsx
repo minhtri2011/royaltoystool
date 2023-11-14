@@ -30,7 +30,7 @@ _𝐑𝐨𝐲𝐚𝐥 𝐓𝐨𝐲𝐬: https://www.facebook.com/royaltoys9999
 
 𝗕𝘂̛𝗼̛́𝗰 𝟯: Tham gia vào hai nhóm
 _𝐂𝐨̣̂𝐧𝐠 đ𝐨̂̀𝐧𝐠 𝐀𝐧𝐭𝐢 𝐒𝐜𝐚𝐦 𝐆𝐮𝐧𝐝𝐚𝐦 𝐕𝐍: https://www.facebook.com/groups/311652321168639
-_𝐂𝐡𝐨̛̣ 𝐭𝐫𝐨̛̀𝐢 𝐆𝐮𝐧𝐝𝐚𝐦 𝐕𝐍: https://www.facebook.com/groups/606837867234057
+_𝐂𝐡𝐨̛̣ đ𝐞𝐧 𝐆𝐮𝐧𝐝𝐚𝐦 𝐕𝐍: https://www.facebook.com/groups/606837867234057
 
 𝐁𝐮̛𝐨̛́𝐜 𝟒 Comment dưới bài viết này với 3 số cuối giải đặc biệt của sổ số miền Bắc ngày ${copyValue.date} mà bạn dự đoán kèm tag ít nhất 3 người bạn để cùng tham gia
 -------------------------------------------------
