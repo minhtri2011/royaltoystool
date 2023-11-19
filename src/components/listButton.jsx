@@ -16,7 +16,7 @@ const ListButton = () => {
 
   const links = [
     "https://www.fanaticanimestore.com/pre-order/?sort=newest",
-    "https://orzgk.com/collections/newest-pre-order",
+    // "https://orzgk.com/collections/newest-pre-order",
     "https://www.anitoysgk.com/Preorder/",
     "https://www.nightwindshop.com/en/product/all/newest",
     "https://www.hobbyfanclub.com/hfc/home/boardgallery.aspx?forumid=18",
