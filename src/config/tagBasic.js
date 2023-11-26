@@ -8,14 +8,14 @@ const tiktok = `🎮 𝐓𝐢𝐤𝐭𝐨𝐤:
 const figureContent = `
 -------------------------------------------------
 🚢 Hỗ trợ vận chuyển trong và ngoài nước
-💰 Hỗ trợ trả góp (Thẻ tín dụng, Ví momo trả sau, Shopee Spay later)
+💰 Hỗ trợ trả góp (Thẻ tín dụng, Ví momo trả sau)
 -------------------------------------------------`;
 
 // for kit metalbuild template 
 const basicContent = `
 -------------------------------------------------
 💸 Hỗ trợ cọc ít cho học sinh, sinh viên
-❤️‍🔥 Hỗ trợ trả hàng pre-order qua shopee để anh em áp mã
+❤️ Hỗ trợ trả hàng pre-order qua shopee để anh em áp mã
 🚢 Hỗ trợ vận chuyển trong và ngoài nước
 💰 Hỗ trợ trả góp (Thẻ tín dụng, Ví momo trả sau, Shopee Spay later)
 -------------------------------------------------`;
