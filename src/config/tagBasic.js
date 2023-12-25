@@ -15,7 +15,6 @@ const figureContent = `
 const basicContent = `
 -------------------------------------------------
 💸 Hỗ trợ cọc ít cho học sinh, sinh viên
-❤️ Hỗ trợ trả hàng pre-order qua shopee để anh em áp mã
 🚢 Hỗ trợ vận chuyển trong và ngoài nước
 💰 Hỗ trợ trả góp (Thẻ tín dụng, Ví momo trả sau, Shopee Spay later)
 -------------------------------------------------`;
